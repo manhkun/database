@@ -7,12 +7,13 @@
     <meta name="keywords" content="Yoga, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Violet | Template</title>
+    <title>Categories - Trang Web bán sách hàng đầu Việt Nam</title>
 
-    <!-- Google Font -->
+    <!-- Google Font  -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
+   
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
@@ -22,18 +23,19 @@
     <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
-
-
 </head>
 
 <body>
-
+    <?php
+        session_start();
+        include('../../controller/categories.php');
+    ?>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
     
-    <!-- Search model -->
+   <!-- Search model -->
 	<div class="search-model">
 		<div class="h-100 d-flex align-items-center justify-content-center">
 			<div class="search-close-switch">+</div>
@@ -54,15 +56,29 @@
                 <div class="header-right">
                     <img src="../../img/icons/search.png" alt="" class="search-trigger">
                     <img src="../../img/icons/man.png" alt="">
-                    <a href="#">
+                    <!-- <a href="#">
                         <img src="../../img/icons/bag.png" alt="">
-                        <!-- <span>2</span> -->
-                    </a>
+                    </a> -->
+                    <?php
+                    if(isset($_SESSION['name'])){
+                        echo "<a href=\"../../controller/logout.php\">
+                                <img src=\"../../img/icons/log_out.png\" alt=\"\">
+                              </a>";
+                    }
+                    ?>
                 </div>
                 
                 <div class="user-access">
-                    <a href="./register.php">Đăng ký</a>
-                    <a href="./sign-in.php" class="in">Đăng nhập</a>
+                    <?php
+                        if(isset($_SESSION['name'])){
+                            echo "<a href=\"./index.html\">Xin chào, {$_SESSION['name']}</a>";
+                        }
+                        else {
+                            echo"<a href=\"./register.php\">Đăng ký</a>
+                            <a href=\"./sign-in.php\" class=\"in\">Đăng nhập</a>
+                            ";
+                        }
+                    ?>
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
@@ -82,53 +98,89 @@
         </div>
     </header>
     
+    <!-- Header End -->
+
     <!-- Page Add Section Begin -->
     <section class="page-add">
         <div class="container">
-            <div class="row d-flex justify-content-center">
+            <div class="row">
                 <div class="col-lg-4">
-                    <div class="page-breadcrumb ">
-                        <h2>Đăng nhập<span>.</span></h2>
+                    <div class="page-breadcrumb">
+                        <h2>Sách<span>.</span></h2>
+                        <a href="#">Home</a>
+                        <a href="#">Dresses</a>
+                        <a class="active" href="#">Night Dresses</a>
                     </div>
                 </div>
-                
+                <div class="col-lg-8">
+                    <img src="../../img/add.jpg" alt="">
+                </div>
             </div>
         </div>
     </section>
     <!-- Page Add Section End -->
 
-    <!-- Contact Section Begin -->
-    <div class="contact-section">
+    <!-- Categories Page Section Begin -->
+    <section class="categories-page spad">
         <div class="container">
-            <div class="row d-flex justify-content-center ">
-                <div class="col-lg-8  ">
-                    <form action="../../controller/sign-in.php" method="POST" class="contact-form">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <input id="email" type="email" name="email" required placeholder="Email">
+            <div class="categories-controls">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="categories-filter">
+                            <div class="cf-left">
+                                <form action="#">
+                                    <select class="sort">
+                                        <option value="">Sort by</option>
+                                        <option value="">Orders</option>
+                                        <option value="">Newest</option>
+                                        <option value="">Price</option>
+                                    </select>
+                                </form>
                             </div>
-                           
-                            <div class="col-lg-12">
-                                <input  id="password"type="password" name="password" required placeholder="Mật khẩu" >
-                            </div>
-                            <div class="col-lg-12 text-center">
-                                <button type="submit" name="signIn">Đăng nhập</button>
-                            </div>
-                            <div class="check">
-                                <a href="register.php" >
-                                    <pre style="color: #D12227 ">  Bạn chưa có tài khoản?
-                                    </pre>
-                                </a>
+                            <div class="cf-right">
+                                <span>20 Products</span>
+                                <a href="#">2</a>
+                                <a href="#" class="active">4</a>
+                                <a href="#">6</a>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-                
             </div>
-            
+            <div class="row">
+                <?php
+                while($row = mysqli_fetch_array($result)){
+                    echo"<div class=\"col-lg-3 col-md-6\">
+                            <div class=\"single-product-item\">
+                                <figure>
+                                    <img src=\"../../img/products/{$row['image']}\" alt=\"\">
+                                    <div class=\"p-status\">new</div>
+                                    <div class=\"hover-icon\">
+                                        <a href=\"../../img/products/{$row['image']}\" class=\"pop-up\"><img src=\"img/icons/zoom-plus.png\"
+                                            alt=\"\"></a>
+                                    </div>
+                                </figure>
+                        <div class=\"product-text\">
+                            <a href=\"./product-page.php?id={$row['id']}\">
+                                <h6>{$row['name']}</h6>
+                            </a>
+                            <p>{$row['price']} Đ</p>
+                        </div>
+                    </div>
+                    </div>";  
+                }            
+                ?>
+            </div>
+            <div class="more-product">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="#" class="primary-btn">Load More</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Contact Section End -->
+    </section>
+    <!-- Categories Page Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section spad">
@@ -186,7 +238,7 @@
                 </div>
             </div>
         </div>
-
+        
 
 		</div>
     </footer>
@@ -201,8 +253,6 @@
     <script src="../js/jquery.nice-select.min.js"></script>
     <script src="../js/mixitup.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/validation.js"></script>
-
 </body>
 
 </html>
