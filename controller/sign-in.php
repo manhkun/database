@@ -10,6 +10,9 @@
             $_SESSION["email"] = $row['email'];
             $_SESSION["password"] = $row['password'];
             $_SESSION["name"] = $row['name'];
+            $_SESSION["id"] = $row['id'];
+            $_SESSION['active'] = "standard";
+            $_SESSION['fee'] = 15000;
         } else {
             $message = "Tài khoản hoặc mật khẩu không chính xác !";
         }

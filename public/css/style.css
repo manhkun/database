@@ -1350,7 +1350,6 @@ ol {
 	border-radius: 50px;
 	text-align: center;
 }
-
 .product-content .product-quantity .pro-qty input {
 	width: 50px;
 	text-align: center;
@@ -1983,6 +1982,29 @@ ol {
 	border: none;
 	font-size: 14px;
 	font-weight: 600;
+	padding: 16px 20px;
+	border: 2px solid #1e1e1e;
+	border-radius: 50px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+.cart-form input {
+	width: 100%;
+	font-size: 12px;
+	font-weight: 600;
+	color: #838383;
+	border: 0;
+	padding-bottom: 14px;
+	border-bottom: 2px solid #E7EBED;
+	margin-bottom: 25px;
+}
+
+.cart-form button {
+	color: #1e1e1e;
+	background: transparent;
+	border: none;
+	font-size: 14px;
+	font-weight: 600;
 	padding: 16px 50px;
 	border: 2px solid #1e1e1e;
 	border-radius: 50px;
@@ -2331,8 +2353,15 @@ ol {
 	.header-info {
 		padding: 10px 0;
 	}
-	.error{
-		
+	.addCart{
+		width: 100%;
+		font-size: 12px;
+		font-weight: 600;
+		color: #838383;
+		border: 0;
+		padding-bottom: 14px;
+		border-bottom: 2px solid #E7EBED;
+		margin-bottom: 25px;
 	}
 }
 

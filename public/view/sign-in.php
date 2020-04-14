@@ -68,8 +68,8 @@
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Trang chủ</a></li>
-                        <li><a href="./categories.html">Cửa hàng</a>
+                        <li><a href="./index.php">Trang chủ</a></li>
+                        <li><a href="./categories.php">Cửa hàng</a>
                             <ul class="sub-menu">
                                 <li><a href="product-page.html">Sản phẩm</a></li>
                                 <li><a href="shopping-cart.html">Mua hàng</a></li>

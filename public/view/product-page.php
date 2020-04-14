@@ -11,6 +11,7 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
 
@@ -26,7 +27,6 @@
 
 <body>
     <?php
-        session_start();
         include('../../controller/product-page.php');
     ?>
     <!-- Page Preloder -->
@@ -55,22 +55,36 @@
                 <div class="header-right">
                     <img src="../../img/icons/search.png" alt="" class="search-trigger">
                     <img src="../../img/icons/man.png" alt="">
-                    <a href="#">
+                    <!-- <a href="#">
                         <img src="../../img/icons/bag.png" alt="">
-                        <!-- <span>2</span> -->
-                    </a>
+                    </a> -->
+                    <?php
+                    if(isset($_SESSION['name'])){
+                        echo "<a href=\"../../controller/logout.php\">
+                                <img src=\"../../img/icons/log_out.png\" alt=\"\">
+                              </a>";
+                    }
+                    ?>
                 </div>
                 <div class="user-access">
-                    <a href="./register.php">Đăng ký</a>
-                    <a href="./sign-in.php" class="in">Đăng nhập</a>
+                <?php
+                        if(isset($_SESSION['name'])){
+                            echo "<a href=\"\">Xin chào, {$_SESSION['name']}</a>";
+                        }
+                        else {
+                            echo"<a href=\"./register.php\">Đăng ký</a>
+                            <a href=\"./sign-in.php\" class=\"in\">Đăng nhập</a>
+                            ";
+                        }
+                    ?>
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li><a href="./index.php">Trang chủ</a></li>
                         <li><a href="./categories.php">Cửa hàng</a>
                             <ul class="sub-menu">
-                                <li><a href="product-page.html">Sản phẩm</a></li>
-                                <li><a href="shopping-cart.html">Mua hàng</a></li>
+                                <li><a href="product-page.php">Sản phẩm</a></li>
+                                <li><a href="shopping-cart.php">Mua hàng</a></li>
                                 <li><a href="check-out.html">Thanh toán</a></li>
                             </ul>
                         </li>
@@ -93,7 +107,7 @@
                         <h2>Shirts<span>.</span></h2>
                         <a href="#">Home</a>
                         <a href="#">Dresses</a>
-                        <a class="active" href="#">Night Dresses</a>
+                        <a class="active" href="#" >Night Dresses</a>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -108,12 +122,23 @@
     <section class="product-page">
         <div class="container">
             <div class="product-control">
-                <a href="#">Previous</a>
-                <a href="#">Next</a>
+                <?php
+                    if($id == 1){
+                        echo"
+                            <a href=\"./product-page.php?id={$next}\">Next</a>";
+                    } elseif($id == $total_product){
+                        echo"
+                            <a href=\"./product-page.php?id={$previous}\">Previous</a>";
+                    }else echo"
+                            <a href=\"./product-page.php?id={$previous}\">Previous</a>
+                            <a href=\"./product-page.php?id={$next}\">Next</a>";                
+                ?>
+
             </div>
             <div class="row">
                 <?php
                     echo"<div class=\"col-lg-6\">
+
                             <div class=\"product-slider owl-carousel\">
                             <div class=\"product-img\">
                             <figure>
@@ -134,7 +159,7 @@
                     <div class=\"product-content\">
                         <h2>{$row['name']}</h2>
                         <div class=\"pc-meta\">
-                            <h5>{$row['price']}</h5>
+                            <h5>{$row['price']} Đ</h5>
                             <div class=\"rating\">
                                 <i class=\"fa fa-star\"></i>
                                 <i class=\"fa fa-star\"></i>
@@ -145,21 +170,21 @@
                         </div>
                         <p>{$row['description']}</p>
                         <ul class=\"tags\">
-                            <li><span>Category :</span>{$row['category']}</li>
-                            <li><span>Author :</span> {$row['author']}</li>
+                            <li><span>Thể loại :</span>{$row['category']}</li>
+                            <li><span>Tác giả :</span> {$row['author']}</li>
                         </ul>
-                        <div class=\"product-quantity\">
-                            <div class=\"pro-qty\">
-                                <input type=\"text\" value=\"1\">
+                        <form action=\"\" method=\"POST\" class=\"contact-form\">
+                            <div class=\"row\">
+                                <div class=\"product-quantity\">
+                                    <div class=\"pro-qty\">
+                                        <input type=\"text\" name=\"amount\" value=\"1\" class=\"mt-2\">
+                                    </div>
+                                </div>
+                                <div class=\"col-lg-6\">
+                                    <button type=\"submit\" name=\"addCart\">Thêm vào giỏ hàng</button>
+                                </div>
                             </div>
-                        </div>
-                        <a href=\"#\" class=\"primary-btn pc-btn\">Add to cart</a>
-                        <ul class=\"p-info\">
-                            <li>Product Information</li>
-                            <li>Reviews</li>
-                            <li>Product Care</li>
-                        </ul>
-                    </div>
+                        </form>
                 </div>";
                 ?>
 
@@ -174,59 +199,31 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-title">
-                        <h2>Related Products</h2>
+                        <h2>Các sản phẩm liên quan</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-1.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Green Dress with details</h6>
-                            <p>$22.90</p>
+                <?php
+                    $result1 = mysqli_query($con, "SELECT * FROM books WHERE (category = '{$row['category']}' OR author = '{$row['author']}') AND NOT id = '{$row['id']}'");
+                    $count = 0;
+                    while($product = mysqli_fetch_array($result1) and $count < 4 ){
+                        echo"                                       
+                        <div class=\"col-lg-3 col-sm-6\">
+                        <div class=\"single-product-item\">
+                            <figure>
+                                <a href=\"#\"><img src=\"../../img/products/{$product['image']}\" alt=\"\"></a>
+                                <div class=\"p-status\">new</div>
+                            </figure>
+                            <div class=\"product-text\">
+                                <h6>{$product['name']}</h6>
+                                <p>{$product['price']} Đ</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-2.jpg" alt=""></a>
-                            <div class="p-status sale">sale</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Yellow Maxi Dress</h6>
-                            <p>$25.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-3.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>One piece bodysuit</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-4.jpg" alt=""></a>
-                            <div class="p-status popular">popular</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Blue Dress with details</h6>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
+                    </div>";
+                    $count++;
+                    }
+                ?>
             </div>
         </div>
     </section>

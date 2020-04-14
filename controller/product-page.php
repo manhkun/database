@@ -1,9 +1,18 @@
 <?php
+    session_start();
     $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         $result = mysqli_query($con, "SELECT * FROM books WHERE id = $id");
         $row = mysqli_fetch_array($result);
+        $total_product = mysqli_num_rows(mysqli_query($con, "SELECT * FROM books"));
+        $previous = $id-1;
+        $next = $id+1;
+        
     }
-    
+    if(isset($_POST['addCart'])){
+        $_SESSION['amount'] = $_POST['amount'];
+        $_SESSION['buy'] = true;
+        header("Location: ../view/shopping-cart.php?bookid={$row['id']}");
+    }
 ?>

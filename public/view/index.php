@@ -27,6 +27,7 @@
 <body>
     <?php
         session_start();
+        include('../../controller/categories.php');
     ?>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -178,7 +179,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="section-title">
-                            <h2>Latest Products</h2>
+                            <h2>Sản phẩm mới nhất</h2>
                         </div>
                         <ul class="product-controls">
                             <li data-filter="*">All</li>
@@ -190,137 +191,31 @@
                 </div>
             </div>
             <div class="row" id="product-list">
-                <div class="col-lg-3 col-sm-6 mix all science  ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-1.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Green Dress with details</h6>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all comic ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-2.jpg" alt=""></a>
-                            <div class="p-status sale">sale</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Yellow Maxi Dress</h6>
-                            <p>$25.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all comic ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-3.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>One piece bodysuit</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all comic ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-4.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>One piece bodysuit</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all comic ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-5.jpg" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>One piece bodysuit</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all novel ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-6.jpg" alt=""></a>
-                            <div class="p-status popular">popular</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Blue Dress with details</h6>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all novel ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-7.gif" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Green Dress with details</h6>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all novel ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-8.jpg" alt=""></a>
-                            <div class="p-status sale">sale</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Yellow Maxi Dress</h6>
-                            <p>$25.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all novel ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-9.jpg" alt=""></a>
-                        </figure>
-                        <div class="product-text">
-                            <h6>One piece bodysuit</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all novel ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-10.jpg" alt=""></a>
-                            <div class="p-status popular">popular</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Blue Dress with details</h6>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all novel ">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="../../img/products/img-11.jpg" alt=""></a>
-                            <div class="p-status popular">popular</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Blue Dress with details</h6>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                    $count = 0;
+                    while($row = mysqli_fetch_array($result) and $count < 8){
+                        if($row['category'] == 'Tiểu thuyết') $category = 'novel';
+                        elseif($row['category'] == 'Khoa học') $category = 'science';
+                        elseif($row['category'] == 'Truyện tranh') $category = 'comic';
+                        echo"
+                        <div class=\"col-lg-3 col-sm-6 mix all {$category}\">
+                            <div class=\"single-product-item\">
+                                <figure>
+                                    <a href=\"#\"><img src=\"../../img/products/{$row['image']}\" alt=\"\"></a>
+                                    <div class=\"p-status\">new</div>
+                                </figure>
+                                <div class=\"product-text\">
+                                    <a href=\"./product-page.php?id={$row['id']}\">
+                                        <h6>{$row['name']}</h6>
+                                    </a>
+                                    <p>{$row['price']} Đ</p>
+                                </div>
+                            </div>
+                        </div>";
+                    $count++;
+                    }
+                ?>
+
             </div>
         </div>
     </section>

@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
-   
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
@@ -82,10 +81,10 @@
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Trang chủ</a></li>
-                        <li><a href="./categories.html">Cửa hàng</a>
+                        <li><a href="./index.php">Trang chủ</a></li>
+                        <li><a href="./categories.php">Cửa hàng</a>
                             <ul class="sub-menu">
-                                <li><a href="product-page.html">Sản phẩm</a></li>
+                                <li><a href="product-page.php">Sản phẩm</a></li>
                                 <li><a href="shopping-cart.html">Mua hàng</a></li>
                                 <li><a href="check-out.html">Thanh toán</a></li>
                             </ul>
@@ -126,26 +125,38 @@
             <div class="categories-controls">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="categories-filter">
+                        <div class="categories-filter" >
                             <div class="cf-left">
-                                <form action="#">
-                                    <select class="sort">
-                                        <option value="">Sort by</option>
-                                        <option value="">Orders</option>
-                                        <option value="">Newest</option>
-                                        <option value="">Price</option>
+                                <!-- <form action="" method="POST">
+                                    <select class="sort" name="sort">
+                                        <a href="#">Sap xep</a>
+                                        <option value="newest"><a href="#">Sap xep</a></option>
+                                        <option value="priceFromLowToHigh">Giá từ thấp đến cao</option>
+                                        <option value="priceFromHighDowntoLow">Giá từ cao xuống thấp</option>
                                     </select>
-                                </form>
+
+                                </form>-->
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown">
+                                    Sắp xếp
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="./categories.php?sortby=newest">Mới nhất</a>
+                                        <a class="dropdown-item" href="./categories.php?sortby=priceup">Giá: Thấp -> Cao</a>
+                                        <a class="dropdown-item" href="./categories.php?sortby=pricedown">Giá: Cao -> Thấp</a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="cf-right">
                                 <span>20 Products</span>
-                                <a href="#">2</a>
-                                <a href="#" class="active">4</a>
+                                <a href="#"class="active">2</a>
+                                <a href="#" >4</a>
                                 <a href="#">6</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
             <div class="row">
                 <?php
@@ -253,6 +264,16 @@
     <script src="../js/jquery.nice-select.min.js"></script>
     <script src="../js/mixitup.min.js"></script>
     <script src="../js/main.js"></script>
+       
+    <!-- Popper JS -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

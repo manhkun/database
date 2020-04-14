@@ -152,6 +152,7 @@
             }
         }
         $button.parent().find('input').val(newVal);
+        return newVal;
     });
 
     /*-------------------
