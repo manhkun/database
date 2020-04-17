@@ -219,7 +219,12 @@
                                             <td class="total"><?php echo "{$totalPayment['sumofCart']} Đ";?></td>
                                             <!-- <td class="sub-total">$29</td> -->
                                             <td class="shipping"><?php echo "{$_SESSION['fee']} Đ";?></td>
-                                            <td class="total-cart-p">$39</td>
+                                            <td class="total-cart-p">
+                                                <?php
+                                                    $total = (int) $totalPayment['sumofCart'] + (int)$_SESSION['fee'];
+                                                    echo "$total Đ";
+                                                ?>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

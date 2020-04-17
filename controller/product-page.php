@@ -13,6 +13,9 @@
     if(isset($_POST['addCart'])){
         $_SESSION['amount'] = $_POST['amount'];
         $_SESSION['buy'] = true;
-        header("Location: ../view/shopping-cart.php?bookid={$row['id']}");
+        if(isset($_SESSION['id'])) {
+            header("Location: ../view/shopping-cart.php?bookid={$row['id']}");       
+        }
+        else header("Location: ../view/sign-in.php");
     }
 ?>

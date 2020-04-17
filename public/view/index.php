@@ -108,7 +108,7 @@
                         <div class="col-lg-12">
                             <h1>2020</h1>
                             <h2>Tri Thức.</h2>
-                            <a href="#" class="primary-btn">See More</a>
+                            <a href="./categories.php" class="primary-btn">See More</a>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                         <div class="col-lg-12">
                             <h1>2020</h1>
                             <h2>Giải trí.</h2>
-                            <a href="#" class="primary-btn">See More</a>
+                            <a href="./categories.php" class="primary-btn">See More</a>
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                         <div class="col-lg-12">
                             <h1>2020</h1>
                             <h2>Tra cứu.</h2>
-                            <a href="#" class="primary-btn">See More</a>
+                            <a href="./categories.php" class="primary-btn">See More</a>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                         <div class=\"col-lg-3 col-sm-6 mix all {$category}\">
                             <div class=\"single-product-item\">
                                 <figure>
-                                    <a href=\"#\"><img src=\"../../img/products/{$row['image']}\" alt=\"\"></a>
+                                    <a href=\"./product-page.php?id={$row['id']}\"><img src=\"../../img/products/{$row['image']}\" alt=\"\"></a>
                                     <div class=\"p-status\">new</div>
                                 </figure>
                                 <div class=\"product-text\">
