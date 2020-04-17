@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Yoga Studio Template">
-    <meta name="keywords" content="Yoga, unica, creative, html">
+    <meta name="description" content="Trang web bán sách">
+    <meta name="keywords" content="hiệu sách online, mua sách ở đâu, mua sách online ở đâu, đọc sách điện tử, đọc sách hay online ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Violet | Template</title>
+    <title>Book Store - Website bán sách hàng đầu </title>
+
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
@@ -25,6 +26,9 @@
 </head>
 
 <body>
+    <?php
+        session_start();
+    ?>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -46,33 +50,44 @@
         <div class="container-fluid">
             <div class="inner-header">
                 <div class="logo">
-                    <a href="./index.html"><img src="../../img/logo.png" alt=""></a>
+                    <a href="./index.php"><img src="../../img/logo.png" alt=""></a>
                 </div>
                 <div class="header-right">
                     <img src="../../img/icons/search.png" alt="" class="search-trigger">
                     <img src="../../img/icons/man.png" alt="">
-                    <a href="#">
-                        <img src="../../img/icons/bag.png" alt="">
-                        <!-- <span>2</span> -->
-                    </a>
+                    
+                    <?php
+                        if(isset($_SESSION['name'])){
+                            echo "<a href=\"../../controller/logout.php\">
+                                    <img src=\"../../img/icons/log_out.png\" title=\"Đăng xuất\"  alt=\"\">
+                                </a>";
+                        }
+                    ?>
                 </div>
-               
+                
                 <div class="user-access">
-                    <a href="./register.php">Đăng ký</a>
-                    <a href="./sign-in.php" class="in">Đăng nhập</a>
-                </div>
-                <nav class="main-menu mobile-menu">
+                    <?php
+                        if(isset($_SESSION['name'])){
+                            echo "<a href=\"./index.php\">Xin chào, {$_SESSION['name']}</a>";
+                        }
+                        else {
+                            echo"<a href=\"./register.php\">Đăng ký</a>
+                            <a href=\"./sign-in.php\" class=\"in\">Đăng nhập</a>
+                            ";
+                        }
+                    ?>
+                </div>ass="main-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Trang chủ</a></li>
-                        <li><a href="./categories.html">Cửa hàng</a>
+                        <li><a href="./index.php">Trang chủ</a></li>
+                        <li><a href="./categories.php">Cửa hàng</a>
                             <ul class="sub-menu">
-                                <li><a href="product-page.html">Sản phẩm</a></li>
-                                <li><a href="shopping-cart.html">Mua hàng</a></li>
-                                <li><a href="check-out.html">Thanh toán</a></li>
+                                <li><a href="product-page.php">Sản phẩm</a></li>
+                                <li><a href="shopping-cart.php">Mua hàng</a></li>
+                                <li><a href="check-out.php">Thanh toán</a></li>
                             </ul>
                         </li>
                        
-                        <li><a href="./contact.html">Liên hệ</a></li>
+                        <li><a href="./contact.php">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
@@ -99,25 +114,25 @@
     <!-- Page Add Section End -->
 
     <!-- Contact Section Begin -->
-    <div class="contact-section">
+     <div class="contact-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <form action="#" class="contact-form">
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" placeholder="First Name">
+                                <input type="text" placeholder="Tên">
                             </div>
                             <div class="col-lg-6">
-                                <input type="text" placeholder="Last Name">
+                                <input type="text" placeholder="Họ">
                             </div>
                             <div class="col-lg-12">
                                 <input type="email" placeholder="E-mail">
-                                <input type="text" placeholder="Subject">
-                                <textarea placeholder="Message"></textarea>
+                                <input type="text" placeholder="Nghề nghiệp">
+                                <textarea placeholder="Tin nhắn"></textarea>
                             </div>
                             <div class="col-lg-12 text-right">
-                                <button type="submit">Send message</button>
+                                <button type="submit">Gửi tin nhắn</button>
                             </div>
                         </div>
                     </form>
@@ -125,24 +140,24 @@
                 <div class="col-lg-3 offset-lg-1">
                     <div class="contact-widget">
                         <div class="cw-item">
-                            <h5>Location</h5>
+                            <h5>Địa chỉ</h5>
                             <ul>
-                                <li>1525 Awesome Lane, </li>
-                                <li>Los Angeles, CA</li>
+                                <li>144 Xuân Thủy, </li>
+                                <li>Cầu Giấy, Hà Nội</li>
                             </ul>
                         </div>
                         <div class="cw-item">
-                            <h5>Phone</h5>
+                            <h5>Số điện thoại</h5>
                             <ul>
-                                <li>+1 (603)535-4592</li>
-                                <li>+1 (603)535-4556</li>
+                                <li>0123456789</li>
+                                <li>0987654321</li>
                             </ul>
                         </div>
                         <div class="cw-item">
                             <h5>E-mail</h5>
                             <ul>
-                                <li>contact@violetstore.com</li>
-                                <li>www.violetstore.com</li>
+                                <li>bookstore@gmail.com</li>
+                                <li>www.bookstore.com</li>
                             </ul>
                         </div>
                     </div>
@@ -151,9 +166,9 @@
             <div class="map">
                 <div class="row">
                     <div class="col-lg-12">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26440.72384129847!2d-118.24906619231132!3d34.06719475913053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c659f50c318d%3A0xe2ffb80a9d3820ae!2sChinatown%2C%20Los%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1570213740685!5m2!1sen!2sbd"
-                            height="560" style="border:0;" allowfullscreen=""></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2574.7672108920424!2d105.78199961643556!3d21.03842911475024!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab354920c233%3A0x5d0313a3bfdc4f37!2sVNU%20University%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sbd!4v1586697990045!5m2!1sen!2sbd" 
+                            width="600" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                        </iframe>
                     </div>
                 </div>
             </div>

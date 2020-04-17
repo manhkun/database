@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Yoga Studio Template">
-    <meta name="keywords" content="Yoga, unica, creative, html">
+    <meta name="description" content="Trang web bán sách">
+    <meta name="keywords" content="hiệu sách online, mua sách ở đâu, mua sách online ở đâu, đọc sách điện tử, đọc sách hay online ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Violet | Template</title>
+    <title>Book Store - Website bán sách hàng đầu </title>
+
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
@@ -25,6 +26,9 @@
 </head>
 
 <body>
+    <?php
+        session_start();
+    ?>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -46,33 +50,45 @@
         <div class="container-fluid">
             <div class="inner-header">
                 <div class="logo">
-                    <a href="./index.html"><img src="../../img/logo.png" alt=""></a>
+                    <a href="./index.php"><img src="../../img/logo.png" alt=""></a>
                 </div>
                 <div class="header-right">
                     <img src="../../img/icons/search.png" alt="" class="search-trigger">
                     <img src="../../img/icons/man.png" alt="">
-                    <a href="#">
-                        <img src="../../img/icons/bag.png" alt="">
-                        <!-- <span>2</span> -->
-                    </a>
+                    
+                    <?php
+                        if(isset($_SESSION['name'])){
+                            echo "<a href=\"../../controller/logout.php\">
+                                    <img src=\"../../img/icons/log_out.png\" title=\"Đăng xuất\"  alt=\"\">
+                                </a>";
+                        }
+                    ?>
                 </div>
                 
                 <div class="user-access">
-                    <a href="./register.php">Đăng ký</a>
-                    <a href="./sign-in.php" class="in">Đăng nhập</a>
+                    <?php
+                        if(isset($_SESSION['name'])){
+                            echo "<a href=\"./index.php\">Xin chào, {$_SESSION['name']}</a>";
+                        }
+                        else {
+                            echo"<a href=\"./register.php\">Đăng ký</a>
+                            <a href=\"./sign-in.php\" class=\"in\">Đăng nhập</a>
+                            ";
+                        }
+                    ?>
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Trang chủ</a></li>
-                        <li><a href="./categories.html">Cửa hàng</a>
+                        <li><a href="./index.php">Trang chủ</a></li>
+                        <li><a href="./categories.php">Cửa hàng</a>
                             <ul class="sub-menu">
-                                <li><a href="product-page.html">Sản phẩm</a></li>
-                                <li><a href="shopping-cart.html">Mua hàng</a></li>
-                                <li><a href="check-out.html">Thanh toán</a></li>
+                                <li><a href="product-page.php">Sản phẩm</a></li>
+                                <li><a href="shopping-cart.php">Mua hàng</a></li>
+                                <li><a href="check-out.php">Thanh toán</a></li>
                             </ul>
                         </li>
                     
-                        <li><a href="./contact.html">Liên hệ</a></li>
+                        <li><a href="./contact.php">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
