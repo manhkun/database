@@ -5,8 +5,8 @@
     $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
     if(isset($_GET['bookid'])){
         $bookID = $_GET['bookid'];
-        $userId = $_SESSION["id"];
-        $amount = $_SESSION["amount"];
+        $userId = $_SESSION['id'];
+        $amount = $_SESSION['amount'];
         $result = mysqli_query($con, "SELECT * FROM books WHERE id = '$bookID'");
         $book = mysqli_fetch_array($result);
         $total = (int)$book['price']*(int)$amount;
@@ -38,7 +38,7 @@
         }
         header("Location: ../public/view/shopping-cart.php");
     }
-    $carts = mysqli_query($con, "SELECT * FROM cart WHERE userId = '{$_SESSION["id"]}' ORDER BY id DESC"); 
+    $carts = mysqli_query($con, "SELECT * FROM cart WHERE userId = '{$_SESSION['id']}' ORDER BY id DESC"); 
     $sum = mysqli_query($con, "SELECT SUM(`totalPayment`) as `sumofCart` FROM cart WHERE userId = '{$userId}'");
     $totalPayment = mysqli_fetch_array($sum);
 ?>

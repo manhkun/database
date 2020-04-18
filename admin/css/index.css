@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+}
+/*======Menu======*/
+.menu {
+    float: left;
+    height: 100vh;
+    width: 250px;
+    background-color: #584d41f2;
+}
+
+
+
+/*=====Phần logo========*/
+#logo {
+    width: 100%;
+    height: 50px;
+}
+
+
+/*=============Phần các mục trong menu===========*/
+#menu-content {
+    width: 100%;
+    height: calc( 100vh - 50px);
+    overflow: auto;
+}
+
+    #menu-content::-webkit-scrollbar {
+        width: 3px;
+        background-color: #000000;
+    }
+
+
+.menu-item {
+    border: 1px solid #232f33;
+}
+
+
+    .menu-item .menu-item-text {
+        color: #fff;
+        line-height: 40px;
+    }
+
+    .menu-item:hover {
+        background-color: #eb7728;
+    }
+
+/*=====Nội dung trang web======*/
+
+.content {
+    width: calc(100% - 250px);
+    height: 100vh;
+    margin-left: 250px;
+}
+
+.content-header {
+    background-color: #584d41f2;
+    width: 100%;
+    height: 50px;
+}
+
+.content-header .header-right{
+    float: right;
+	line-height: 50px;
+}
+
+.content-header .header-right img {
+	display: inline-block;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.content-header .header-right a {
+	display: inline-block;
+}
+
+.content-header .header-right a img {
+	margin-right: 0;
+	margin-left: 4px;
+}
+
+.content-header .user-access{
+    float: right;
+	margin-right: 100px;
+}
+
+.content-header .user-access a {
+	color: #1e1e1e;
+	font-size: 16px;
+	display: inline-block;
+	font-weight: 500;
+	position: relative;
+	line-height: 42px;
+}
+
+.content-header .user-access a.in {
+	color: #838383;
+	margin-left: 15px;
+	position: relative;
+}
+
+.content-header .user-access a.in::before {
+	position: absolute;
+	left: -13px;
+	top: 1px;
+	color: #1e1e1e;
+	content: "/";
+}
