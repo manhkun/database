@@ -18,7 +18,11 @@
         }
     }
     if(isset($_SESSION["email"])) {
-        header("Location: ../view/index.php");
+        if( (int) $row['authorization'] == 1){
+            header("Location: ../view/index.php");
+        }else{
+            header("Location: ../../admin/view/index.php");
+        }    
     } else {
         // echo "
         // <script language=\"javascript\">
@@ -27,4 +31,5 @@
         // </script>
         // " ;  
     }
+?>  
 ?>  
