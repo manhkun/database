@@ -11,7 +11,6 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
 
@@ -27,7 +26,8 @@
 
 <body>
     <?php
-        include('../../controller/product-page.php');
+        include('../../controller/shopping-cart.php');
+        include('../../controller/check-out.php');
     ?>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -50,7 +50,7 @@
         <div class="container-fluid">
             <div class="inner-header">
                 <div class="logo">
-                    <a href="./index.html"><img src="../../img/logo.png" alt=""></a>
+                    <a href="./index.php"><img src="../../img/logo.png" alt=""></a>
                 </div>
                 <div class="header-right">
                     <img src="../../img/icons/search.png" alt="" class="search-trigger">
@@ -66,8 +66,9 @@
                     }
                     ?>
                 </div>
+                
                 <div class="user-access">
-                <?php
+                    <?php
                         if(isset($_SESSION['name'])){
                             echo "<a href=\"\">Xin chào, {$_SESSION['name']}</a>";
                         }
@@ -85,17 +86,17 @@
                             <ul class="sub-menu">
                                 <li><a href="product-page.php">Sản phẩm</a></li>
                                 <li><a href="shopping-cart.php">Mua hàng</a></li>
-                                <li><a href="check-out.html">Thanh toán</a></li>
+                                <li><a href="check-out.php">Thanh toán</a></li>
                             </ul>
                         </li>
-                        
+                    
                         <li><a href="./contact.html">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    
+   
     <!-- Header End -->
 
     <!-- Page Add Section Begin -->
@@ -104,10 +105,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="page-breadcrumb">
-                        <h2>Sản phẩm<span>.</span></h2>
-                        <!-- <a href="#">Home</a>
-                        <a href="#">Dresses</a>
-                        <a class="active" href="#" >Night Dresses</a> -->
+                        <h2>Thanh toán<span>.</span></h2>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -118,116 +116,116 @@
     </section>
     <!-- Page Add Section End -->
 
-    <!-- Product Page Section Beign -->
-    <section class="product-page">
+    <!-- Cart Total Page Begin -->
+    <section class="cart-total-page spad">
         <div class="container">
-            <div class="product-control">
-                <?php
-                    if($id == 1){
-                        echo"
-                            <a href=\"./product-page.php?id={$next}\">Sau</a>";
-                    } elseif($id == $total_product){
-                        echo"
-                            <a href=\"./product-page.php?id={$previous}\">Trước</a>";
-                    }else echo"
-                            <a href=\"./product-page.php?id={$previous}\">Trước</a>
-                            <a href=\"./product-page.php?id={$next}\">Sau</a>";                
-                ?>
-
-            </div>
-            <div class="row">
-                <?php
-                    echo"<div class=\"col-lg-6\">
-
-                            <div class=\"product-slider owl-carousel\">
-                            <div class=\"product-img\">
-                            <figure>
-                                <img src=\"../../img/products/{$row['image']}\" alt=\"\">
-                                <div class=\"p-status\">new</div>
-                            </figure>
+            <form action="#" class="checkout-form" method="POST">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>Thông tin của bạn</h3>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <p class="in-name" >Họ và tên*</p>
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="name" required>
+                            </div>
                         </div>
-                        <div class=\"product-img\">
-                            <figure>
-                                <img src=\"../../img/products/{$row['image']}\" alt=\"\">
-                                <div class=\"p-status\">new</div>
-                            </figure>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <p class="in-name">Số nhà</p>
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="apartmentNumber">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <p class="in-name" >Xã/Phường*</p>
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="ward" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <p class="in-name">Quận/Huyện*</p>
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="district" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <p class="in-name">Tỉnh/TP*</p>
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="province" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <p class="in-name">Số điện thoại*</p>
+                            </div>
+                            <div class="col-lg-10">
+                                <input type="text" name="phoneNumber" required>
+                            </div>
                         </div>
                     </div>
-                    
-                </div>
-                <div class=\"col-lg-6\">
-                    <div class=\"product-content\">
-                        <h2>{$row['name']}</h2>
-                        <div class=\"pc-meta\">
-                            <h5>{$row['price']} Đ</h5>
-                            <div class=\"rating\">
-                                <i class=\"fa fa-star\"></i>
-                                <i class=\"fa fa-star\"></i>
-                                <i class=\"fa fa-star\"></i>
-                                <i class=\"fa fa-star\"></i>
-                                <i class=\"fa fa-star\"></i>
+                    <div class="col-lg-3">
+                        <div class="order-table">
+                            <div class="cart-item">
+                                <span>Sản phẩm</span>
+                                <?php
+                                while($cart = mysqli_fetch_array($carts)){
+                                    $product = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM books WHERE id = '{$cart['bookId']}'"));
+                                    echo"<p class=\"product-name \">{$product['name']}</p>";
+                                }
+                                ?>
+                                
+                            </div>
+                            <div class="cart-item">
+                                <span>Tổng đơn hàng</span>
+                                <p><?php if($totalPayment!= "")echo "{$totalPayment} Đ"; else echo "0 Đ";?></p>
+                            </div>
+                            <div class="cart-item">
+                                <span>Số lượng</span>
+                                <p><?php echo "{$totalQuantity} Cuốn" ?></p>
+                            </div>
+                            <div class="cart-item">
+                                <span>Phí vận chuyển</span>
+                                <p><?php echo "{$_SESSION['fee']} Đ";?></p>
+                            </div>
+
+                            <div class="cart-total">
+                                <span>Tổng</span>
+                                <p><?php echo "{$totalSum} Đ" ?></p>
                             </div>
                         </div>
-                        <p>{$row['description']}</p>
-                        <ul class=\"tags\">
-                            <li><span>Thể loại :</span>{$row['category']}</li>
-                            <li><span>Tác giả :</span> {$row['author']}</li>
-                        </ul>
-                        <form action=\"\" method=\"POST\" class=\"contact-form\">
-                            <div class=\"row\">
-                                <div class=\"product-quantity\">
-                                    <div class=\"pro-qty\">
-                                        <input type=\"text\" name=\"amount\" value=\"1\" class=\"mt-2\">
-                                    </div>
-                                </div>
-                                <div class=\"col-lg-6\">
-                                    <button type=\"submit\" name=\"addCart\">Thêm vào giỏ hàng</button>
-                                </div>
-                            </div>
-                        </form>
-                </div>";
-                ?>
-
-            </div>
-        </div>
-    </section>
-    <!-- Product Page Section End -->
-
-    <!-- Related Product Section Begin -->
-    <section class="related-product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-title">
-                        <h2>Các sản phẩm liên quan</h2>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <?php
-                    $result1 = mysqli_query($con, "SELECT * FROM books WHERE (category = '{$row['category']}' OR author = '{$row['author']}') AND NOT id = '{$row['id']}'");
-                    $count = 0;
-                    while($product = mysqli_fetch_array($result1) and $count < 4 ){
-                        echo"                                       
-                        <div class=\"col-lg-3 col-sm-6\">
-                        <div class=\"single-product-item\">
-                            <figure>
-                                <a href=\"./product-page.php?id={$product['id']}\"><img src=\"../../img/products/{$product['image']}\" alt=\"\"></a>
-                                <div class=\"p-status\">new</div>
-                            </figure>
-                            <div class=\"product-text\">
-                                <h6>{$product['name']}</h6>
-                                <p>{$product['price']} Đ</p>
-                            </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="payment-method">
+                            <h3>Phương thức thanh toán</h3>
+                            <ul>
+                                <li>Paypal <img src="../../img/paypal.jpg" alt=""></li>
+                                <li>Credit / Debit card <img src="../../img/mastercard.jpg" alt=""></li>
+                                <li>
+                                    <label for="two">Thanh toán khi nhận hàng</label>
+                                    <input type="radio" id="two" required>
+                                </li>
+                            </ul>
+                            <button type="submit" name="order">Đặt hàng</button>
                         </div>
-                    </div>";
-                    $count++;
-                    }
-                ?>
-            </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
-    <!-- Related Product Section End -->
+    <!-- Cart Total Page End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section spad">

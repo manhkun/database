@@ -11,6 +11,7 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
 
@@ -25,6 +26,9 @@
 </head>
 
 <body>
+    <?php
+        include('../../controller/orders.php');
+    ?>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -51,184 +55,163 @@
                 <div class="header-right">
                     <img src="../../img/icons/search.png" alt="" class="search-trigger">
                     <img src="../../img/icons/man.png" alt="">
-                    <a href="#">
+                    <!-- <a href="#">
                         <img src="../../img/icons/bag.png" alt="">
-                        <!-- <span>2</span> -->
-                    </a>
+                         <span>2</span>
+                    </a> -->
+                    <?php
+                    if(isset($_SESSION['name'])){
+                        echo "<a href=\"../../controller/logout.php\">
+                                <img src=\"../../img/icons/log_out.png\" alt=\"\">
+                              </a>";
+                    }
+                    ?>
                 </div>
                 
                 <div class="user-access">
-                    <a href="./register.php">Đăng ký</a>
-                    <a href="./sign-in.php" class="in">Đăng nhập</a>
+                <?php
+                    if(isset($_SESSION['name'])){
+                        echo "<a href=\"./index.php\">Xin chào, {$_SESSION['name']}</a>";
+                    }
+                    else {
+                        echo"<a href=\"./register.php\">Đăng ký</a>
+                        <a href=\"./sign-in.php\" class=\"in\">Đăng nhập</a>
+                        ";
+                    }
+                ?>
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Trang chủ</a></li>
-                        <li><a href="./categories.html">Cửa hàng</a>
+                        <li><a href="./index.php">Trang chủ</a></li>
+                        <li><a href="./categories.php">Cửa hàng</a>
                             <ul class="sub-menu">
                                 <li><a href="product-page.html">Sản phẩm</a></li>
                                 <li><a href="shopping-cart.html">Mua hàng</a></li>
                                 <li><a href="check-out.html">Thanh toán</a></li>
                             </ul>
                         </li>
-                    
+                        
                         <li><a href="./contact.html">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-   
+    
     <!-- Header End -->
 
     <!-- Page Add Section Begin -->
-    <section class="page-add">
+    <section class="page-add cart-page-add">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="page-breadcrumb">
-                        <h2>Checkout<span>.</span></h2>
+                        <h2>Đơn hàng<span>.</span></h2>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <img src="../../img/add.jpg" alt="">
+                    <img src="../../img/add1.jpg" alt="">
                 </div>
             </div>
         </div>
     </section>
     <!-- Page Add Section End -->
 
-    <!-- Cart Total Page Begin -->
-    <section class="cart-total-page spad">
+    <!-- Cart Page Section Begin -->
+    <!-- <div class="shopping-method">
         <div class="container">
-            <form action="#" class="checkout-form">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3>Your Information</h3>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <p class="in-name">Name*</p>
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" placeholder="First Name">
-                            </div>
-                            <div class="col-lg-5">
-                                <input type="text" placeholder="Last Name">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <p class="in-name">Street Address*</p>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text">
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <p class="in-name">Country*</p>
-                            </div>
-                            <div class="col-lg-10">
-                                <select class="cart-select country-usa">
-                                    <option>USA</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <p class="in-name">City*</p>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <p class="in-name">Country</p>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <p class="in-name">Post Code/ZIP*</p>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <p class="in-name">Phone*</p>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 text-right">
-                                <div class="diff-addr">
-                                    <input type="radio" id="one">
-                                    <label for="one">Ship to different address</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="order-table">
-                            <div class="cart-item">
-                                <span>Product</span>
-                                <p class="product-name">Blue Dotted Shirt</p>
-                            </div>
-                            <div class="cart-item">
-                                <span>Price</span>
-                                <p>$29</p>
-                            </div>
-                            <div class="cart-item">
-                                <span>Quantity</span>
-                                <p>1</p>
-                            </div>
-                            <div class="cart-item">
-                                <span>Shipping</span>
-                                <p>$10</p>
-                            </div>
-
-                            <div class="cart-total">
-                                <span>Total</span>
-                                <p>$39</p>
-                            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="total-info">
+                        <div class="total-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Mã hóa đơn</th>
+                                        <th>Ngày đặt hàng</th>
+                                        <th>Tổng hàng</th>
+                                        <th>Phương thức vận chuyển</th>
+                                        <th>Phí giao hàng</th>
+                                        <th class="total-cart">Tổng cộng</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        while($cart = mysqli_fetch_array($carts)){
+                                        $product = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM books WHERE id = '{$cart['bookId']}'"));
+                                        echo"
+                                        <tr>
+                                        <td class=\"product-col\">
+                                            <div class=\"p-title\">
+                                                <h5>{$product['name']}</h5>
+                                            </div>
+                                        </td>
+                                        <td class=\"price-col\">{$product['price']}</td>
+                                        <td class=\"quantity-col\">                                   
+                                            <h5 >{$cart['quantity']}</h5>
+                                        </td>
+                                        <td class=\"total\">{$cart['totalPayment']} Đ</td>
+                                        <td class=\"product-close\"><a href=\"../../controller/shopping-cart.php?delete={$cart['id']}\" class=\"text-body\"><i class=\"fa fa-trash-o\"></i></a></td>
+                                        </tr>
+                                        ";
+                                        }
+                                    ?> 
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="payment-method">
-                            <h3>Payment</h3>
-                            <ul>
-                                <li>Paypal <img src="img/paypal.jpg" alt=""></li>
-                                <li>Credit / Debit card <img src="img/mastercard.jpg" alt=""></li>
-                                <li>
-                                    <label for="two">Pay when you get the package</label>
-                                    <input type="radio" id="two">
-                                </li>
-                            </ul>
-                            <button type="submit">Place your order</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
-    </section>
-    <!-- Cart Total Page End -->
+    </div>   -->
+    <div class="cart-page">
+        <div class="container">
+            <div class="cart-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tên sản phẩm</th>
+                            <th>Mã đơn hàng</th>
+                            <th class="method-ship">Phương thức vận chuyển</th>
+                            <th>Ngày đặt</th>      
+                            <th>Tình trạng</th>         
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        <?php
+                        while($order = mysqli_fetch_array($temp)){
+                            if($order['methodShip'] == 'standard') $order['methodShip'] = "Tiêu chuẩn";
+                            elseif($order['methodShip'] == 'fast') $order['methodShip'] = "Nhanh";
+                            elseif($order['methodShip'] == 'express') $order['methodShip'] = "Hỏa tốc";
+                            echo"
+                                <tr>
+                                <td class=\"product-col\">
+                                    <div class=\"p-title\">
+                                        <h5>{$order['nameofBooks']}</h5>
+                                    </div>
+                                </td>
+                                <td class=\"price-col\"><a href=\"./orderdetails.php?orderId={$order['orderId']}\">{$order['orderId']}</a></td>
+                                <td class=\"quantity-col\">                                   
+                                    <h5>{$order['methodShip']}</h5>
+                                </td>
+                                <td class=\"total\">{$order['orderDate']}</td>
+                                <td class=\"product-close\">{$order['status']}</td>
+                                </tr>   
+                                ";
+                        }
+                        ?>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Cart Page Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer-section spad">
         <div class="container">
-            <div class="footer-widget">
+           <div class="footer-widget">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-footer-widget">
@@ -282,6 +265,7 @@
             </div>
         </div>
         
+
 
 		</div>
     </footer>

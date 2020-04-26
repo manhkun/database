@@ -106,13 +106,10 @@
                 <div class="col-lg-4">
                     <div class="page-breadcrumb">
                         <h2>Sách<span>.</span></h2>
-                        <a href="#">Home</a>
-                        <a href="#">Dresses</a>
-                        <a class="active" href="#">Night Dresses</a>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <img src="../../img/add.jpg" alt="">
+                    <img src="../../img/add1.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -163,14 +160,13 @@
                 while($row = mysqli_fetch_array($result)){
                     echo"<div class=\"col-lg-3 col-md-6\">
                             <div class=\"single-product-item\">
+                            <a href=\"./product-page.php?id={$row['id']}\">
                                 <figure>
                                     <img src=\"../../img/products/{$row['image']}\" alt=\"\">
                                     <div class=\"p-status\">new</div>
-                                    <div class=\"hover-icon\">
-                                        <a href=\"../../img/products/{$row['image']}\" class=\"pop-up\"><img src=\"img/icons/zoom-plus.png\"
-                                            alt=\"\"></a>
-                                    </div>
+
                                 </figure>
+                            </a>    
                         <div class=\"product-text\">
                             <a href=\"./product-page.php?id={$row['id']}\">
                                 <h6>{$row['name']}</h6>

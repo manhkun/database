@@ -1,4 +1,5 @@
 <?php
+// ket noi csdl
     $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
     if(isset($_GET['sortby'])){
         $sort = $_GET['sortby'];

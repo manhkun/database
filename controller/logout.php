@@ -1,6 +1,8 @@
 <?php
+//chuyen ve sign in
     $view_file = '../public/view/sign-in.php';
     session_start();
+    // unset toan bo session
     unset($_SESSION["email"]);
     unset($_SESSION["pass"]);
     unset($_SESSION["name"]);

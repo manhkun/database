@@ -27,7 +27,7 @@
 
 <body>
     <?php
-        include('../../controller/shopping-cart.php');
+        include('../../controller/orderdetails.php');
     ?>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -106,10 +106,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="page-breadcrumb">
-                        <h2>Giỏ hàng<span>.</span></h2>
-                        <!-- <a href="#">Home</a>
-                        <a href="#">Dresses</a>
-                        <a class="active" href="#">Night Dresses</a> -->
+                        <h2>Chi tiết đơn hàng<span>.</span></h2>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -136,8 +133,8 @@
                     </thead>
                     <tbody>       
                             <?php
-                            while($cart = mysqli_fetch_array($carts)){
-                                $product = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM books WHERE id = '{$cart['bookId']}'"));
+                            while($orderdetail = mysqli_fetch_array($orderdetails)){
+                                $product = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM books WHERE id = '{$orderdetail['bookId']}'"));
                                 echo"
                                 <tr>
                                 <td class=\"product-col\">
@@ -148,14 +145,11 @@
                                 </td>
                                 <td class=\"price-col\">{$product['price']}</td>
                                 <td class=\"quantity-col\">
-                                    <div class=\"product-quantity\">
-                                        <div class=\"pro-qty\">
-                                            <input type=\"text\" name=\"amount\" value=\"{$cart['quantity']}\">
-                                        </div>
+                                    <div class=\"product-quantity ml-5\">
+                                        <h5>{$orderdetail['quantity']}</h5>
                                     </div>
                                 </td>
-                                <td class=\"total\">{$cart['totalPayment']} Đ</td>
-                                <td class=\"product-close\"><a href=\"../../controller/shopping-cart.php?delete={$cart['id']}\" class=\"text-body\"><i class=\"fa fa-trash-o\"></i></a></td>
+                                <td class=\"total\">{$orderdetail['totalPayment']} Đ</td>
                                 </tr>
                                 ";
                             }
@@ -163,41 +157,32 @@
                     </tbody>
                 </table>
             </div>
-            <div class="cart-btn">
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1 text-left text-lg-right">
-                        <div class="site-btn clear-btn"><a href="../../controller/shopping-cart.php?deleteAll=true" class="text-body">Xóa toàn bộ</div>
-                        <div class="site-btn update-btn"><a href="./categories.php" class="text-body">Thêm sản phẩm mới</a></div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="shopping-method">  
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="shipping-info" >
-                            <h5>Lựa chọn phương thức vận chuyển</h5>
+                        <div class="shipping-info">
+                            <h5>Thông tin vận chuyển</h5>
                             <div class="chose-shipping">
                                 <div class="cs-item">
-                                    <input type="radio" name="cs" id="one">
-                                    <label for="one" class="<?php if($_SESSION['methodShip']=="standard") echo "active"; else echo "noactive"?>">
-                                        <a href="../../controller/shopping-cart.php?methodShip=standard" class="<?php if($_SESSION['active']=="standard") echo "text-body"; else echo "text-black-50"?>">Giao hàng tiêu chuẩn</a>
-                                        <span>Nhận hàng sau 3-5 ngày</span>
+                                    <label for="one">
+                                        <span>Họ tên người nhận</span>
+                                        <?php echo $order['customerName']?>
+                                        
                                     </label>
                                 </div>
                                 <div class="cs-item">
-                                    <input type="radio" name="cs\" id="two">
-                                    <label for="two" class="<?php if($_SESSION['methodShip']=="fast") echo "active"; else echo "noactive"?>">
-                                        <a href="../../controller/shopping-cart.php?methodShip=fast" class="<?php if($_SESSION['active']=="fast") echo "text-body"; else echo "text-black-50"?>">Giao hàng nhanh</a>
-                                        <span>Nhận hàng sau 1-2 ngày</span>
+                                    <label for="two">
+                                        <span>Địa chỉ giao hàng</span>
+                                        <?php echo $order['address']?>
+                                        
                                     </label>
                                 </div>
-                                <div class="cs-item last">
-                                    <input type="radio" name="cs" id="three">
-                                    <label for="three" class="<?php if($_SESSION['methodShip']=="express") echo "active"; else echo "noactive"?>" >
-                                    <a href="../../controller/shopping-cart.php?methodShip=express" class="<?php if($_SESSION['active']=="express") echo "text-body"; else echo "text-black-50"?>">Giao hàng hỏa tốc</a>
-                                        <span>Nhận hàng trong ngày</span>
+                                <div class="cs-item">
+                                    <label for="three">
+                                        <span>Tình trạng giao hàng</span>
+                                        <?php echo $order['status']?>
                                     </label>
                                 </div>
                             </div>
@@ -216,7 +201,7 @@
                                     <tbody>
                                         <tr>
                                             <td class="total"><?php if($totalPayment!= "")echo "{$totalPayment} Đ"; else echo "0 Đ";?></td>
-                                            <td class="shipping"><?php echo "{$_SESSION['fee']} Đ";?></td>
+                                            <td class="shipping"><?php echo "{$fee} Đ";?></td>
                                             <td class="total-cart-p"><?php echo "{$totalSum} Đ" ?></td>
                                         </tr>
                                     </tbody>
@@ -224,7 +209,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 text-right">
-                                    <a href="./check-out.php" class="primary-btn chechout-btn">Tiến hành thanh toán</a>
+                                    <a href="./orders.php" class="primary-btn chechout-btn">Quay lại danh sách đơn</a>
                                 </div>
                             </div>
                         </div>

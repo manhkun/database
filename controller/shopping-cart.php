@@ -1,7 +1,5 @@
 <?php
     session_start();
-    // $standard = "";
-    // $fast = $express = "";
     $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
     if(isset($_GET['bookid'])){
         $bookID = $_GET['bookid'];
@@ -11,7 +9,16 @@
         $book = mysqli_fetch_array($result);
         $total = (int)$book['price']*(int)$amount;
         if($_SESSION['buy']){
-            $putIntoCart = mysqli_query($con, "INSERT INTO cart(`userId`, `bookId`, `quantity`, `totalPayment`) VALUE ('{$userId}', '{$bookID}', '{$amount}', '{$total}')");
+            $check = mysqli_query($con, "SELECT * FROM cart WHERE bookId = '$bookID' and userId = '$userId'");
+            $book_check = mysqli_fetch_array($check);
+            $num_check = mysqli_num_rows($check);
+            if($num_check > 0){
+                $amount+=$book_check['quantity'];
+                $total+=$book_check['totalPayment'];
+                $putIntoCart = mysqli_query($con, "INSERT INTO cart(`userId`, `bookId`, `quantity`, `totalPayment`) VALUE ('{$userId}', '{$bookID}', '{$amount}', '{$total}')");
+                $delBookInCart = mysqli_query($con, "DELETE FROM cart WHERE id = {$book_check['id']}");
+            }else
+                $putIntoCart = mysqli_query($con, "INSERT INTO cart(`userId`, `bookId`, `quantity`, `totalPayment`) VALUE ('{$userId}', '{$bookID}', '{$amount}', '{$total}')");
             $_SESSION['buy'] = false;
         }
     }
@@ -26,19 +33,22 @@
         header("Location: ../public/view/shopping-cart.php");
     }
     if(isset($_GET['methodShip'])){
-        $_SESSION['active'] = $_GET['methodShip'];
-        if($_SESSION['active'] == "standard"){
+        $_SESSION['methodShip'] = $_GET['methodShip'];
+        if($_SESSION['methodShip'] == "standard"){
             $_SESSION['fee'] = 15000;
         }
-        if($_SESSION['active'] == "fast"){
+        if($_SESSION['methodShip'] == "fast"){
             $_SESSION['fee'] = 25000;
         }
-        if($_SESSION['active'] == "express"){
+        if($_SESSION['methodShip'] == "express"){
             $_SESSION['fee'] = 40000;
         }
         header("Location: ../public/view/shopping-cart.php");
     }
     $carts = mysqli_query($con, "SELECT * FROM cart WHERE userId = '{$_SESSION["id"]}' ORDER BY id DESC"); 
-    $sum = mysqli_query($con, "SELECT SUM(`totalPayment`) as `sumofCart` FROM cart WHERE userId = '{$userId}'");
-    $totalPayment = mysqli_fetch_array($sum);
+    $sum = mysqli_query($con, "SELECT SUM(`totalPayment`) as `totalPayment`, SUM(`quantity`) as `sumQuantity` FROM cart WHERE userId = '{$_SESSION["id"]}'");
+    $total = mysqli_fetch_array($sum);
+    $totalPayment = $total['totalPayment'];
+    $totalQuantity = $total['sumQuantity'];
+    $totalSum = $_SESSION['fee'] + $totalPayment;
 ?>
