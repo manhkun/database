@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
+    $con = mysqli_connect('localhost','root','ngoclyo2210','project_csdl') or die('Unable To connect');
     if(isset($_GET['sortby'])){
         $sort = $_GET['sortby'];
         switch($sort){
@@ -13,5 +13,6 @@
                 $result = mysqli_query($con, "SELECT * FROM books ORDER BY price DESC");;
                 break;
         }
-    } else $result = mysqli_query($con, "SELECT * FROM books");
+    }
+    else $result = mysqli_query($con, "SELECT * FROM books");
 ?>

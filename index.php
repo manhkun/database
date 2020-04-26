@@ -1,5 +1,5 @@
 <?php
-    header("Location: ./public/view/index.php");
+    header("Location: ./public/view/front/index.php");
 ?>
 
 
