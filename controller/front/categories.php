@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect('localhost','root','ngoclyo2210','project_csdl') or die('Unable To connect');
+    $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
     if(isset($_GET['sortby'])){
         $sort = $_GET['sortby'];
         switch($sort){

@@ -2,7 +2,7 @@
     session_start();
     $message="";
     if(count($_POST)>0) {
-        $con = mysqli_connect('localhost','root','ngoclyo2210','project_csdl') or die('Unable To connect');
+        $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
         $result = mysqli_query($con,"SELECT * FROM users WHERE email='" . $_POST["email"] . "' and password = '". $_POST["password"]."'");
         $row  = mysqli_fetch_array($result);
         if(is_array($row)) {

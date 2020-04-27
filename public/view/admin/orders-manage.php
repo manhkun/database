@@ -30,9 +30,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        include('../../../controller/admin/amount.php');
-                    ?>
+                    <tr>
+                        <td>{$row['orderDate']}</td>
+                        <td>{$row['total']}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

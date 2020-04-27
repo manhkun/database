@@ -3,7 +3,7 @@
 $view_file = 'sign-in.php';
 
 // kết nối với csdl
-$connect = mysqli_connect('localhost', 'root', 'ngoclyo2210', 'project_csdl');
+$connect = mysqli_connect('localhost', 'root', '', 'project_csdl');
 // xử lý from đăng ký
 $name = $email = $phoneNumber = $password = $confirmPassword = '';
 $passwordIsNotMatch = $emailUsed = '';

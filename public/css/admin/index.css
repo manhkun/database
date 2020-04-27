@@ -7,18 +7,83 @@ body {
     background: none;
 }
 
-.header{
+a{
+    text-decoration: none;
+    color: #111;
+}
+
+a:hover{
+    color: #555;
+}
+
+/*HEADER*/
+header{
+    position: fixed;
     margin: 0;
     width: 100%;
-    height: 70px;
-    border: 1px solid #324532;
-    padding-top: 30px ;
+    height: 50px;
+    padding-top: 10px ;
+    background-color: #818181;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    border-bottom: 1px solid #555;    
 }
 
 .logo{
     padding-left: 20px;
+    float: left;
+
 }
 
-/* .header .header-right{
+.header-right{
     float: right;
-} */
+    display: flex;
+    padding-right: 20px;
+}
+
+.header-right .row{
+    padding-left: 25px;
+}
+
+/*Content*/
+/*sidebar*/
+.content{
+    padding-left: 250px;
+	left: 0;
+	width: calc (100% - 250px);
+}
+
+.sidebar {
+    height: 100%;
+	width: 250px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 60px;
+    background-color: #818181;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+ 
+.sidebar .col{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+    padding-left: 10px;
+}
+
+.sidebar .col a{
+    line-height: 50px;
+}
+
+.sidebar .col a>span{
+    padding-left: 10px;
+}
+
+.content-body{
+    padding: 5em 5em;
+    overflow-x:hidden;
+}
+
