@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Người dùng</title>
 
     <link rel="stylesheet" href="../../css/admin/index.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -21,19 +21,21 @@
             include('../layouts/admin/sidebar.php')
         ?>
         <div class="content-body">
-            <div><h1>Doanh thu<h1></div>
+            <div><h1>Người dùng<h1></div>
             <table id="table_id" class="display" >
                 <thead>
                     <tr>
-                        <th>Thời gian</th>
-                        <th>Số tiền thu được</th>
+                        <th>STT</th>
+                        <th>Họ tên</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Mật khẩu</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{$row['orderDate']}</td>
-                        <td>{$row['total']}</td>
-                    </tr>
+                    <?php
+                        include('../../../controller/admin/user-manage.php');
+                    ?>
                 </tbody>
             </table>
         </div>
