@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
+    include('../../../model/connect.php');
     $result = mysqli_query($con, "SELECT *  FROM books ");
     while ( $row = mysqli_fetch_array($result)){
         echo "

@@ -5,7 +5,7 @@
         $unique = "ORD".$today."_".$rand;
         return $unique;
     }
-    $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
+    include('../../../model/connect.php');
     if(isset($_POST['order'])){
         $orderId = orderIdRand();
         $name = $_POST['name'];

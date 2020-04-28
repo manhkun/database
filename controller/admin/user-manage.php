@@ -1,10 +1,11 @@
 <?php
-    $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
-    $result = mysqli_query($con, "SELECT *  FROM users ");
+    include('../../../model/connect.php');
+    $result = mysqli_query($con, "SELECT *  FROM users WHERE authorization=1");
     while ( $row = mysqli_fetch_array($result)){
+        $stt= (int)$row['id'] - 3;
         echo "
             <tr>
-                <td>{$row['id']}</td>
+                <td>$stt</td>
                 <td>{$row['name']}</td>
                 <td>{$row['email']}</td>
                 <td>{$row['phoneNumber']}</td>

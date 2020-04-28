@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
+    include('../../../model/connect.php');
     if(isset($_GET['bookid'])){
         $bookID = $_GET['bookid'];
         $userId = $_SESSION['id'];

@@ -3,7 +3,7 @@
 $view_file = 'sign-in.php';
 
 // kết nối với csdl
-$connect = mysqli_connect('localhost', 'root', '', 'project_csdl');
+include('../../../model/connect.php');
 // xử lý from đăng ký
 $name = $email = $phoneNumber = $password = $confirmPassword = '';
 $passwordIsNotMatch = $emailUsed = '';
@@ -27,13 +27,13 @@ if (isset($_POST['register'])) {
 
     if ($isPassed) {
         // kiểm tra xem email nhập vào đã tồn tại hay chưa
-        $result = mysqli_query($connect, "SELECT * FROM users WHERE email= '$email' ");
+        $result = mysqli_query($con, "SELECT * FROM users WHERE email= '$email' ");
         $num = mysqli_num_rows($result);
         if ($num > 0) {
            
             $emailUsed = "E-mail này đã được sử dụng. Vui lòng đăng ký lại !";  
         } else {
-            $result = mysqli_query($connect, "INSERT INTO users (name, email, password, phoneNumber, authorization ) VALUE ('$name' , '$email', '$password' , '$phoneNumber', '1'  )");
+            $result = mysqli_query($con, "INSERT INTO users (name, email, password, phoneNumber, authorization ) VALUE ('$name' , '$email', '$password' , '$phoneNumber', '1'  )");
             
 
             header("Location:" . $view_file);
