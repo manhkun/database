@@ -13,4 +13,4 @@ Website bán sách online: Bookstore
         + quản lý hóa đơn
 2. Mô tả cơ sở dữ liệu:
     - Thiết kế cơ sở dữ liệu
-[Bộ thiết kế](https://drive.google.com/open?id=1zpktqV_aurUPX5bGRC-wUQlS20z0uviZ)
+![Bộ thiết kế](https://github.com/ngoclyo/image/blob/master/Screenshot%20(9).png)
