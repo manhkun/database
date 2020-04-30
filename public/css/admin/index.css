@@ -1,3 +1,5 @@
+/* CSS common */
+
 body {
     margin: 0;
 	height: 100%;
@@ -51,7 +53,7 @@ header{
 .content{
     padding-left: 250px;
 	left: 0;
-	width: calc (100% - 250px);
+	width: calc(100% - 250px);
 }
 
 .sidebar {
@@ -87,3 +89,42 @@ header{
     overflow-x:hidden;
 }
 
+/* end Common */
+
+/*  CSS product-manage BEGIN   */
+
+.content-body table tbody td > button {
+    width: 50px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #777;
+    background-color: rgb(90, 56, 56);
+    border: none;
+    /* border-radius: 45px; */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+  
+.content-body table tbody td > button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.modal.m-800{
+    max-width: 800px !important;
+}
+
+#modal-delete{
+    position: relative;
+    width: 200px;
+    height: 100px;
+    margin: auto;
+}

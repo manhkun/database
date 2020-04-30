@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="../../css/admin/index.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
 </head>
 <body>
     <?php
@@ -39,12 +40,13 @@
     </div> 
     <footer class="footer">
 
-    <footer>
+    </footer>
     <?php
         include('../layouts/front/embed.js.php');
     ?>
     <script src="../../js/admin/index.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+         
 </body>
 </html>

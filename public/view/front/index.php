@@ -127,7 +127,7 @@
             <div class="row" id="product-list">
                 <?php
                     $count = 0;
-                    while($row = mysqli_fetch_array($result) and $count < 8){
+                    while($row = mysqli_fetch_array($result) and $count < 10){
                         if($row['category'] == 'Tiểu thuyết') $category = 'novel';
                         elseif($row['category'] == 'Khoa học') $category = 'science';
                         elseif($row['category'] == 'Truyện tranh') $category = 'comic';

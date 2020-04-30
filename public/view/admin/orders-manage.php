@@ -40,7 +40,7 @@
     </div> 
     <footer class="footer">
 
-    <footer>
+    </footer>
     <?php
         include('../layouts/front/embed.js.php');
     ?>
