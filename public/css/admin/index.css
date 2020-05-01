@@ -21,26 +21,23 @@ a:hover {
 button {
     width: 50px;
     height: 45px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
-    text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
-    color: #111;
-    background-color: #0c5460;
+    color: #fff;
+    background-color: #444;
     border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    margin: 5px;
 }
 
-button:hover {
-    background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+button >a{
     color: #fff;
-    transform: translateY(-7px);
+}
+
+button:hover >a:hover{
+    background-color: #555;
+    color: #fff;
 }
 
 
@@ -115,37 +112,22 @@ header {
     overflow-x: hidden;
 }
 
-/* end Common */
+.content-body ._btn-select{
+    float: right;
+    display :flex;
+}
 
-/*  CSS product-manage BEGIN   */
-
-/*.content-body ._btn-create  button {*/
-/*     !*width: 50px;*!*/
-/*     !*height: 45px;*!*/
-/*     !*font-family: 'Roboto', sans-serif;*!*/
-/*     !*font-size: 11px;*!*/
-/*     !*text-transform: uppercase;*!*/
-/*     !*letter-spacing: 2.5px;*!*/
-/*     !*font-weight: 500;*!*/
-/*     !*color: #777;*!*/
-/*     !*background-color: rgb(90, 56, 56);*!*/
-/*     !*border: none;*!*/
-/*     !*border-radius: 45px;*!*/
-/*     !*box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);*!*/
-/*     !*transition: all 0.3s ease 0s;*!*/
-/*     !*cursor: pointer;*!*/
-/*     !*outline: none;*!*/
-/*    background-color: #000000 !important;*/
-/*    border-radius: 1px !important;*/
-/*    color: #f6f6f6 !important;*/
-/* }*/
-
-/*!*.content-body table tbody td > button:hover {*!*/
-/*!*    background-color: #2EE59D;*!*/
-/*!*    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);*!*/
-/*!*    color: #fff;*!*/
-/*!*    transform: translateY(-7px);*!*/
-/*!*}*!*/
+.content-body ._btn-select a{
+    display: block;
+    width: 150px;
+    height: 30px;
+    background-color: #383d42;
+    color: #f7f7f7;
+    margin-left: 5px;
+    padding-top: 2px;
+    text-align: center;
+    cursor: pointer;
+}
 
 .modal.m-800 {
     max-width: 800px !important;
@@ -157,3 +139,5 @@ header {
     height: 100px;
     margin: auto;
 }
+
+/* end Common */

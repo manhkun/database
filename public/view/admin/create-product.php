@@ -34,7 +34,7 @@ include('../layouts/admin/header.php')
         </div>
         <div class="_footer">
             <button class="btn-back" >
-                <a href="./orders-manage.php">Trở lại</a>
+                <a href="./product-manage.php">Trở lại</a>
             </button>
         </div>
     </div>

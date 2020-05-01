@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hóa đơn</title>
 
+    <script src="../../js/jquery-3.3.1.min.js"></script>
+
     <link rel="stylesheet" href="../../css/admin/index.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
 </head>
 <body>
     <?php
@@ -43,11 +48,9 @@
     <footer class="footer">
 
     </footer>
-    <?php
-        include('../layouts/front/embed.js.php');
-    ?>
+    <script>
+        $('#table_id').DataTable();
+    </script>
     <script src="../../js/admin/index.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
 </body>
 </html>

@@ -6,7 +6,6 @@
     <title>Sản phẩm</title>
 
     <script src="../../js/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -14,10 +13,13 @@
 
     <link rel="stylesheet" href="../../css/admin/index.css" type="text/css">
     <link rel="stylesheet" href="../../css/admin/_form.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+
 </head>
 <body>
 <?php
@@ -35,19 +37,23 @@
         <div style="float: left ">
             <h1>Sản phẩm</h1>
         </div>
-        <div class=\"_btn-create\"  style="float: right">
-            <button style="width: 140px "><a href="./create-product.php">Thêm sản phẩm</a></button>
+        <div class="_btn-select"  >
+            <a  href="#modal-popup-create" rel="modal:open">Thêm sản phẩm</a>
+            <a  id="btn-show-all-doc">Ẩn/Hiện</a>
         </div>
-        <table id="table_id" class="display">
+
+        <table id="table_id" class="display ">
             <thead>
             <tr>
                 <th>STT</th>
                 <th>Sản phẩm</th>
                 <th>Đơn giá</th>
-                <th>Thông tin về sản phẩm</th>
-                <th class="none" >Số lượng trong kho</th>
+                <th>Tác giả</th>
+                <th>Thể loại</th>
+                <th>Số lượng trong kho</th>
                 <th>Ngày vào kho</th>
                 <th>Tùy chọn</th>
+                <th class="none">Thông tin về sản phẩm</th>
             </tr>
             </thead>
             <tbody>
@@ -64,15 +70,95 @@
     <div id="modal-content"></div>
 </div>
 
+<div id="modal-popup-create" class="modal m-800">
+    <form class="__form"  method="POST" action="../../../controller/admin/create/product.php" enctype="multipart/form-data">
+        <div class="__header">
+            <span>Thêm sản phẩm</span>
+        </div>
+        <div class="__row">
+            <div class="__label"><span>Tên sản phẩm *</span>
+                <div class="__sublabel">Tên sản phẩm</div>
+            </div>
+            <div class="__input"><input type="text" name="name" placeholder="Tên sản phẩm"  required></div>
+            <div class="clear"></div>
+        </div>
+        <div class="__row">
+            <div class="__label"><span>Hình ảnh *</span>
+                <div class="__sublabel">Hình ảnh</div>
+            </div>
+            <div class="__input"><input style='border: 0px;' type="file" name="image" accept="image/x-png,image/gif,image/jpeg"  required></div>
+            <div class="clear"></div>
+        </div>
+        <div class="__row">
+            <div class="__label"><span>Đơn giá *</span>
+                <div class="__sublabel">Đơn giá</div>
+            </div>
+            <div class="__input"><input type="text" name="price" ></div>
+            <div class="clear"></div>
+        </div>
+        <div class="__row">
+            <div class="__label"><span>Tác giả *</span>
+                <div class="__sublabel">Tác giả</div>
+            </div>
+            <div class="__input"><input type="text" name="author"  ></div>
+            <div class="clear"></div>
+        </div>
+        <div class="__row">
+            <div class="__label"><span>Thể loại *</span>
+                <div class="__sublabel">Thể loại</div>
+            </div>
+            <div class="__input"><input type="text" name="category"  ></div>
+            <div class="clear"></div>
+        </div>
+        <div class="__row">
+            <div class="__label"><span>Thông tin chi tiết *</span>
+                <div class="__sublabel">Thông tin chi tiết</div>
+            </div>
+            <div class="__input"><textarea type="text" name="description"  ></textarea></div>
+            <div class="clear"></div>
+        </div>
+        <div class="__row">
+            <div class="__label"><span>Số lượng vào kho *</span>
+                <div class="__sublabel">Số lượng vào kho</div>
+            </div>
+            <div class="__input"><input type="number" name="amount"></div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="__row">
+            <div class="__label"><span>Ngày vào kho *</span>
+                <div class="__sublabel">Ngày vào kho</div>
+            </div>
+            <div class="__input"><input type="date" name="dateModified" min="2019-1-1" max="2030-1-1" ></div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="__buttons">
+            <input type="button" class="cancle __button" onclick="closeForm()" value="Cancle">
+            <input type="submit" class="submit __button" name ="submit" value="Submit">
+        </div>
+    </form>
+</div>
 
 
 <footer class="footer">
 
 </footer>
 
-<script src="../../js/admin/index.js"></script>
+<script>
+    var table = $('#table_id').DataTable({
+        responsive: true,
+        // scrollX: true
+    });
+    $('#btn-show-all-doc').on('click', expandCollapseAll);
+
+    function expandCollapseAll() {
+        table.rows('.parent').nodes().to$().find('td:first-child').trigger('click').length ||
+        table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click')
+    }
+</script>
+<!--<script src="../../js/admin/index.js"></script>-->
 <script src="../../js/admin/product-manage.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
 </body>
 </html>
