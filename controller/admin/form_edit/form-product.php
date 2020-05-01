@@ -53,7 +53,7 @@ echo "
                 <div class=\"__label\"><span>Thông tin chi tiết</span>
                     <div class=\"__sublabel\">Thông tin chi tiết</div>
                 </div>
-                <div class=\"__input\"><input type=\"text\" name=\"description\" value=\"{$row['description']}\" ></div>
+                <div class=\"__input\"><textarea type=\"text\" name=\"description\"  >{$row['description']}</textarea></div>
                 <div class=\"clear\"></div>
             </div><div class=\"__row\">
                 <div class=\"__label\"><span>Số lượng trong kho</span>

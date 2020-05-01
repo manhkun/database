@@ -38,7 +38,7 @@
                 <th>STT</th>
                 <th>Sản phẩm</th>
                 <th>Đơn giá</th>
-                <!-- <th>Thông tin về sản phẩm</th> -->
+                <th>Thông tin về sản phẩm</th>
                 <th>Số lượng trong kho</th>
                 <th>Ngày vào kho</th>
                 <th>Tùy chọn</th>
