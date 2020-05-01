@@ -10,7 +10,7 @@
                 <td>{$row['email']}</td>
                 <td>{$row['phoneNumber']}</td>
                 <td>
-                    <button class=\"btn-view\" >Xem</button>
+                 <!--   <button class=\"btn-view\" >Xem</button> -->
                     <button onclick='getData(this)' class=\"btn-edit\" data-id=\"{$row['id']}\" >Sửa</button>
                     <button class=\"btn-delete\" onclick=\"askDelete(this)\" data-id=\"{$row['id']}\"   >Xóa</button>
                 </td>

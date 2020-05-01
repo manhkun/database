@@ -21,19 +21,21 @@
             include('../layouts/admin/sidebar.php')
         ?>
         <div class="content-body">
-            <div><h1>Doanh thu<h1></div>
+            <div><h1>Hóa đơn</h1></div>
             <table id="table_id" class="display" >
                 <thead>
                     <tr>
-                        <th>Thời gian</th>
-                        <th>Số tiền thu được</th>
+                        <th>STT</th>
+                        <th>Mã hóa đơn</th>
+                        <th>Ngày đặt hàng</th>
+                        <th>Tình trạng </th>
+                        <th>Tùy chọn</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{$row['orderDate']}</td>
-                        <td>{$row['total']}</td>
-                    </tr>
+                    <?php
+                    include('../../../controller/admin/orders-manage.php');
+                    ?>
                 </tbody>
             </table>
         </div>

@@ -29,8 +29,11 @@
     include('../layouts/admin/sidebar.php')
     ?>
     <div class="content-body">
-        <div>
-            <h1>Sản phẩm<h1>
+        <div style="float: left ">
+            <h1>Sản phẩm</h1>
+        </div>
+        <div class=\"_btn-create\"  style="float: right">
+            <button><a href=\"./create-product.php\">Thêm</a></button>
         </div>
         <table id="table_id" class="display">
             <thead>
@@ -59,9 +62,6 @@
 </div>
 
 
-<div id="modal-delete">
-
-</div>
 
 <footer class="footer">
 

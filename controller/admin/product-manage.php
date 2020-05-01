@@ -2,6 +2,7 @@
 include('../../../model/connect.php');
 $result = mysqli_query($con, "SELECT *  FROM books ");
 while ($row = mysqli_fetch_array($result)) {
+    $id = (int) $row['id'];
     echo "
             <tr>
                 <td>{$row['id']}</td>
@@ -11,7 +12,7 @@ while ($row = mysqli_fetch_array($result)) {
                 <td>{$row['amount']}</td>
                 <td>{$row['dateModified']}</td>
                 <td>
-                    <button class=\"btn-view\" >Xem</button>
+                    <button class=\"btn-view\" ><a href=\"./show-product.php?id={$id}\">Xem</a></button>
                     <button onclick='getData(this)' class=\"btn-edit\" data-id=\"{$row['id']}\" >Sửa</button>
                     <button class=\"btn-delete\" onclick=\"askDelete(this)\" data-id=\"{$row['id']}\"  >Xóa</button>
                 </td>
@@ -20,4 +21,3 @@ while ($row = mysqli_fetch_array($result)) {
 }
 ?>
 
-                        

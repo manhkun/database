@@ -1,5 +1,0 @@
-    <h4>Bạn có chắc chắn muốn xóa</h4>
-    <div class="__buttons">
-        <input type="button" class="cancle__button" value="Cancle">
-        <input type="submit" class="submit __button"  value="Sure">
-    </div>

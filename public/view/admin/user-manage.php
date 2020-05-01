@@ -29,7 +29,7 @@
             include('../layouts/admin/sidebar.php')
         ?>
         <div class="content-body">
-            <div><h1>Người dùng<h1></div>
+            <div><h1>Người dùng</h1></div>
             <table id="table_id" class="display" >
                 <thead>
                     <tr>
