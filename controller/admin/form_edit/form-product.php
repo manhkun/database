@@ -8,12 +8,13 @@ $result = mysqli_query($con, "SELECT *  FROM books WHERE id= '$id'");
 $row = mysqli_fetch_array($result);
 
 echo "
-        <form class=\"__form\"  method=\"POST\" action=\"../../../controller/admin/edit_data/product.php\">
+        <form class=\"__form\"  method=\"POST\" action=\"../../../controller/admin/edit_data/product.php\" enctype=\"multipart/form-data\">
             <div class=\"__header\">
                 <span>Chỉnh sửa sản phẩm</span>
             </div>
             <div class=\"__hidden\">
                 <input type=\"hidden\" name=\"id\" value=\"{$row['id']}\">
+                <input type=\"hidden\" name=\"oldImage\" value=\"{$row['image']}\">
             </div>
             <div class=\"__row\">
                 <div class=\"__label\"><span>Tên sản phẩm *</span>
@@ -22,13 +23,13 @@ echo "
                 <div class=\"__input\"><input type=\"text\" name=\"name\" placeholder=\"Tên sản phẩm\" value=\"{$row['name']}\" required></div>
                 <div class=\"clear\"></div>
             </div>
-          <!--  </div><div class=\"__row\">
+            <div class=\"__row\">
                 <div class=\"__label\"><span>Hình ảnh</span>
-                    <div class=\"__sublabel\">Hình ảnh</div>
+                    <div class=\"__sublabel\">Nhấn chọn nếu muốn thay đổi</div>
                 </div>
-                <div class=\"__input\"><input type=\"name\" name=\"author\" value=\"{}\"></div>
+                <div class=\"__input\"><input style='border: 0px;' type=\"file\" name=\"newImage\" accept=\"image/x-png,image/gif,image/jpeg\" ></div>
                 <div class=\"clear\"></div>
-            </div> -->
+            </div> 
             <div class=\"__row\">
                 <div class=\"__label\"><span>Đơn giá *</span>
                     <div class=\"__sublabel\">Đơn giá</div>

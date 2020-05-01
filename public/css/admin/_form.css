@@ -1,8 +1,8 @@
-#modal-content .__form {
+.__form {
     position: relative;
 
 }
-    #modal-content .__form .__header {
+     .__form .__header {
         font-weight: bolder;
         padding-bottom: 10px;
         font-size: 18px;
@@ -13,17 +13,17 @@
         margin-bottom: 20px;
     }
 
-    #modal-content .__form .__hidden {
+    .__form .__hidden {
         display: none;
     }
 
 
-    #modal-content .__form .__row {
+    .__form .__row {
         position: relative;
         margin-bottom: 10px;
     }
 
-        #modal-content .__form .__row .__label {
+        .__form .__row .__label {
             position: relative;
             font-weight: bolder;
             float: left;
@@ -31,18 +31,18 @@
             color: #444;
         }
 
-            #modal-content .__form .__row .__label .__sublabel {
+            .__form .__row .__label .__sublabel {
                 font-weight: normal;
                 color: #aaa;
                 font-size: 11px;
             }
 
-        #modal-content .__form .__row .__input {
+        .__form .__row .__input {
             position: relative;
             margin-left: 150px;
         }
 
-            #modal-content .__form .__row .__input input {
+            .__form .__row .__input input {
                 box-sizing: border-box;
                 border-radius: 2px;
                 padding: 6px 8px;
@@ -50,7 +50,8 @@
                 width: 100%;
             }
 
-            #modal-content .__form .__row .__input textarea {
+
+            .__form .__row .__input textarea {
                 box-sizing: border-box;
                 border-radius: 2px;
                 padding: 6px 8px;
@@ -61,28 +62,28 @@
             }
 
 
-        #modal-content .__form .__row .__input.disabled > input {
+        .__form .__row .__input.disabled > input {
             pointer-events: none;
             background-color: #eee;
         }
 
-        #modal-content .__form .__row .__input.disabled > textarea {
+        .__form .__row .__input.disabled > textarea {
             pointer-events: none;
             background-color: #eee;
         }
 
-        #modal-content .__form .__row .clear {
+        .__form .__row .clear {
             clear: both;
         }
 
 
-    #modal-content .__form .__buttons {
+    .__form .__buttons {
         padding: 10px 0px;
         position: relative;
         border-top: dotted 1px #999;
     }
 
-        #modal-content .__form .__buttons .__button {
+        .__form .__buttons .__button {
             outline: none;
             cursor: pointer;
             border: none;
@@ -92,13 +93,13 @@
             width: 48%;
         }
 
-        #modal-content .__form .__buttons .__button.cancle {
+        .__form .__buttons .__button.cancle {
             background-color: #ddd;
             color: #666;
             float: left;
         }
 
-        #modal-content .__form .__buttons .__button.submit {
+        .__form .__buttons .__button.submit {
             background-color: #7abd1a;
             float: right;
         }

@@ -11,7 +11,7 @@ while ($row = mysqli_fetch_array($result)) {
                 <td><b>Tác giả:</b> {$row['author']}<br><b>Thể loại:</b> {$row['category']}<br><b>Giới thiệu:</b> {$row['description']}</td>
                 <td>{$row['amount']}</td>
                 <td>{$row['dateModified']}</td>
-                <td>
+                <td >
                     <button class=\"btn-view\" ><a href=\"./show-product.php?id={$id}\">Xem</a></button>
                     <button onclick='getData(this)' class=\"btn-edit\" data-id=\"{$row['id']}\" >Sửa</button>
                     <button class=\"btn-delete\" onclick=\"askDelete(this)\" data-id=\"{$row['id']}\"  >Xóa</button>

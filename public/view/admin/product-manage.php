@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../../css/admin/index.css" type="text/css">
     <link rel="stylesheet" href="../../css/admin/_form.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet"/>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 </head>
 <body>
 <?php
@@ -33,7 +36,7 @@
             <h1>Sản phẩm</h1>
         </div>
         <div class=\"_btn-create\"  style="float: right">
-            <button><a href=\"./create-product.php\">Thêm</a></button>
+            <button style="width: 140px "><a href="./create-product.php">Thêm sản phẩm</a></button>
         </div>
         <table id="table_id" class="display">
             <thead>
@@ -42,7 +45,7 @@
                 <th>Sản phẩm</th>
                 <th>Đơn giá</th>
                 <th>Thông tin về sản phẩm</th>
-                <th>Số lượng trong kho</th>
+                <th class="none" >Số lượng trong kho</th>
                 <th>Ngày vào kho</th>
                 <th>Tùy chọn</th>
             </tr>
@@ -70,9 +73,6 @@
 <script src="../../js/admin/index.js"></script>
 <script src="../../js/admin/product-manage.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
-<!--<script>-->
-<!--    getData('.content .content-body tbody > button.btn-view');-->
-<!--</script>-->
+
 </body>
 </html>

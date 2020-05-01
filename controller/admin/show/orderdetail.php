@@ -103,4 +103,3 @@ if (isset($_GET['orderId'])) {
 }
 ?>
 
-<!--SELECT orders.orderId, orders.orderDate, orders.methodShip, orders.customerName, orders.address, orders.phoneNumber, books.name, books.price, orderdetails.quantity FROM orderdetails INNER JOIN orders ON orderdetails.orderId=orders.orderId INNER JOIN books ON orderdetails.bookId=books.id WHERE orderdetails.orderId='ORD20200426_350'-->

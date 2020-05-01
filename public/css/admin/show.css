@@ -4,6 +4,7 @@
 }
 
 ._show{
+    /*position: relative;*/
     width: 100%;
     height: auto;
     border: 1px solid #95999c;
