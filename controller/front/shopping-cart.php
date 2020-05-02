@@ -1,7 +1,10 @@
 <?php
     session_start();
-    include('../../../model/connect.php');
+    $con = mysqli_connect('localhost','root','ngoclyo2210','project_csdl') or die('Unable To connect');
+
+    // include('../../../model/connect.php');
     if(isset($_GET['bookid'])){
+
         $bookID = $_GET['bookid'];
         $userId = $_SESSION['id'];
         $amount = $_SESSION['amount'];

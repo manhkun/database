@@ -20,6 +20,7 @@
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
 
+<!--    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css">-->
 </head>
 <body>
 <?php
@@ -93,35 +94,35 @@
             <div class="__label"><span>Đơn giá *</span>
                 <div class="__sublabel">Đơn giá</div>
             </div>
-            <div class="__input"><input type="text" name="price" ></div>
+            <div class="__input"><input type="text" name="price" required></div>
             <div class="clear"></div>
         </div>
         <div class="__row">
             <div class="__label"><span>Tác giả *</span>
                 <div class="__sublabel">Tác giả</div>
             </div>
-            <div class="__input"><input type="text" name="author"  ></div>
+            <div class="__input"><input type="text" name="author"  required></div>
             <div class="clear"></div>
         </div>
         <div class="__row">
             <div class="__label"><span>Thể loại *</span>
                 <div class="__sublabel">Thể loại</div>
             </div>
-            <div class="__input"><input type="text" name="category"  ></div>
+            <div class="__input"><input type="text" name="category" required ></div>
             <div class="clear"></div>
         </div>
         <div class="__row">
             <div class="__label"><span>Thông tin chi tiết *</span>
                 <div class="__sublabel">Thông tin chi tiết</div>
             </div>
-            <div class="__input"><textarea type="text" name="description"  ></textarea></div>
+            <div class="__input"><textarea type="text" name="description"  required></textarea></div>
             <div class="clear"></div>
         </div>
         <div class="__row">
             <div class="__label"><span>Số lượng vào kho *</span>
                 <div class="__sublabel">Số lượng vào kho</div>
             </div>
-            <div class="__input"><input type="number" name="amount"></div>
+            <div class="__input"><input type="number" name="amount" required></div>
             <div class="clear"></div>
         </div>
 

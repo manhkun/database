@@ -34,7 +34,7 @@ echo "
                 <div class=\"__label\"><span>Đơn giá *</span>
                     <div class=\"__sublabel\">Đơn giá</div>
                 </div>
-                <div class=\"__input\"><input type=\"text\" name=\"price\" value=\"{$row['price']}\"></div>
+                <div class=\"__input\"><input type=\"text\" name=\"price\" value=\"{$row['price']}\" ></div>
                 <div class=\"clear\"></div>
             </div>
             <div class=\"__row\">

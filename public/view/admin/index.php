@@ -7,11 +7,18 @@
 
     <script src="../../js/jquery-3.3.1.min.js"></script>
 
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"/>
+
+
     <link rel="stylesheet" href="../../css/admin/index.css" type="text/css">
 
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
+
+<!--    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css">-->
 </head>
 <body>
     <?php
@@ -32,6 +39,7 @@
                     <tr>
                         <th>Thời gian</th>
                         <th>Số tiền thu được</th>
+                        <th>Tùy chọn</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +49,26 @@
                 </tbody>
             </table>
         </div>
-    </div> 
+    </div>
+
+    <div id="modal-popup" class="modal ">
+        <div id="modal-content">
+            <h1>Hóa đơn trong ngày</h1>
+            <table border= "collapse">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Hóa đơn</th>
+                        <th>Tổng tiền (không tính ship)</th>
+                    </tr>
+                </thead>
+                    <tbody>
+
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
     <footer class="footer">
 
     </footer>
@@ -49,5 +76,7 @@
     <script>
         $('#table_id').DataTable();
     </script>
+
+    <script src="../../js/admin/amount.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ while ($row = mysqli_fetch_array($result)) {
     $id = (int) $row['id'];
     echo "
             <tr>
-                <td>{$row['id']}</td>
+                <td></td>
                 <td><h4>{$row['name']}</h4><br><img width=100 height=100 style=\"object-fit: cover\" src=\"../../../img/products/{$row['image']}\"></td>
                 <td>{$row['price']}</td>
                 <td>{$row['author']}</td>

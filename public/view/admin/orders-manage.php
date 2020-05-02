@@ -12,6 +12,8 @@
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
+
+
 </head>
 <body>
     <?php
@@ -51,6 +53,6 @@
     <script>
         $('#table_id').DataTable();
     </script>
-    <script src="../../js/admin/index.js"></script>
+<!--    <script src="../../js/admin/index.js"></script>-->
 </body>
 </html>

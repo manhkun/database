@@ -6,6 +6,9 @@
             <tr>
                 <td>{$row['orderDate']}</td>
                 <td>{$row['total']}</td>
+                <td >
+                    <button class=\"btn-view\" onclick='getData(this)' data-id=\"{$row['orderDate']}\">Xem</button>
+                </td>
             </tr>
         ";
     }
