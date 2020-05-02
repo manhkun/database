@@ -33,7 +33,7 @@ if (isset($_POST['register'])) {
            
             $emailUsed = "E-mail này đã được sử dụng. Vui lòng đăng ký lại !";  
         } else {
-            $result = mysqli_query($con, "INSERT INTO users (name, email, password, phoneNumber, authorization ) VALUE ('$name' , '$email', '$password' , '$phoneNumber', '1'  )");
+            $result = mysqli_query($con, "INSERT INTO users (name, email, password, phoneNumber, authorization ) VALUE ('$name' , '$email', '$password' , '$phoneNumber', 1  )");
             
 
             header("Location:" . $view_file);

@@ -21,7 +21,8 @@
 <body>
     <?php
         session_start();
-        include('../../../controller/admin/create/administrator.php');
+        include('../../../model/connect.php');
+//        include('../../../controller/admin/create/administrator.php');
         include('../layouts/admin/header.php');
     ?>
     <div class ="content">
@@ -42,7 +43,7 @@
                 </div>
             </div>
             <div class="_listAdmin">
-                <h2>Danh sách quản trị viên</h2>
+                <h2>Danh sách các quản trị viên khác</h2>
                 <table id="table_id" class="display ">
                     <thead>
                         <tr>
@@ -54,6 +55,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    $arrayAdmin= mysqli_query($con, "SELECT *  FROM users  WHERE id != '{$_SESSION['id']}' AND authorization = '0' ");
+                    $index = 1;
+                    while($adminInfo= mysqli_fetch_array($arrayAdmin)){
+                        echo "
+                        <tr>
+                            <td>{$index}</td>
+                            <td>{$adminInfo['name']}</td>
+                            <td>{$adminInfo['email']}</td>
+                            <td>{$adminInfo['phoneNumber']}</td>
+                            <td>
+                                <button class=\"btn-delete\" onclick=\"askDelete(this)\" data-id=\"{$adminInfo['id']}\"  >Xóa</button>
+                            </td>
+                        </tr>
+                        ";
+                        $index ++;
+                    }
+                    ?>
 
                     </tbody>
                 </table>
@@ -61,7 +80,7 @@
 
         </div>
         <div id="modal-popup-create" class="modal m-800">
-            <form class="__form"  method="POST" action="#" >
+            <form class="__form"  method="POST" action="../../../controller/admin/create/administrator.php" >
                 <div class="__header">
                     <span>Thêm quản trị</span>
                 </div>
@@ -120,6 +139,22 @@
     <script>
         $('#table_id').DataTable();
     </script>
+
+<!--    <script>-->
+<!--        $(document).ready(function () {-->
+<!--            $('#modal-popup-edit .__form').submit(function (event) {-->
+<!--                event.preventDefault();-->
+<!--                var email= $('#_checkMail').val()-->
+<!--                var pass= $('#_checkPass').val()-->
+<!--                var rePass= $('#_reCheckPass').val()-->
+<!--                $('_form-message').load("../../../controller/admin/edit_date/check.php", {-->
+<!--                    _email = email,-->
+<!--                    _pass = pass,-->
+<!--                    _rePass = rePass-->
+<!--                });-->
+<!--            })-->
+<!--        })-->
+<!--    </script>-->
 
     <script src="../../js/admin/adminEdit.js"></script>
 

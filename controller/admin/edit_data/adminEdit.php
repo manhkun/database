@@ -15,7 +15,7 @@ if (isset($_POST['__submit'])) {
     $__isPassed = true;
     if ($__password != $__confirmPassword) {
 
-        $__passwordIsNotMatch = "Xác thực mật khẩu không chính xác, vui lòng nhập lại !";
+//        $__passwordIsNotMatch = "Xác thực mật khẩu không chính xác, vui lòng nhập lại !";
         $__isPassed = false;
     }
 
@@ -24,15 +24,20 @@ if (isset($_POST['__submit'])) {
 
     if ($__isPassed) {
         // kiểm tra xem email nhập vào đã tồn tại hay chưa
-        $__result = mysqli_query($con, "SELECT * FROM users WHERE email= '$__email' ");
-        $__num = mysqli_num_rows($__result);
-        if ($__num > 0) {
-            $__emailUsed = "E-mail này đã được sử dụng. Vui lòng đăng ký lại !";
-        } else {
+//        $__result = mysqli_query($con, "SELECT * FROM users WHERE email= '$__email' ");
+//        $__num = mysqli_num_rows($__result);
+//        if ($__num > 0) {
+////            $__emailUsed = "E-mail này đã được sử dụng. Vui lòng đăng ký lại !";
+//        }
+//        else {
             $__result = mysqli_query($con, "UPDATE users SET `name` ='$__name' , email = '$__email', password = '$__password', phoneNumber =  '$__phoneNumber' WHERE id = '$__id'");
 
-        }
+//        }
+//        header("Location : ../../../public/view/admin/account.php");
+//        exit();
     }
+    header("Location : ../../../public/view/admin/account.php");
+    exit();
 }
 
 ?>
