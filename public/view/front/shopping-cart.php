@@ -7,7 +7,6 @@
 </head>
 <body>
     <?php
-        // session_start();
         include('../../../controller/front/shopping-cart.php');
     ?>
     <!-- Page Preloder -->
@@ -77,10 +76,8 @@
                                         </td>
                                         <td class=\"price-col\">{$product['price']}</td>
                                         <td class=\"quantity-col\">
-                                            <div class=\"product-quantity\">
-                                                <div class=\"pro-qty\">
-                                                    <input type=\"text\" name=\"amount\" value=\"{$cart['quantity']}\">
-                                                </div>
+                                            <div class=\"product-quantity ml-5\">
+                                                <h5>{$cart['quantity']}</h5>
                                             </div>
                                         </td>
                                         <td class=\"total\">{$cart['totalPayment']} Đ</td>

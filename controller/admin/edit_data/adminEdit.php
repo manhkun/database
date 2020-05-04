@@ -6,7 +6,6 @@ $__name = $__email = $__phoneNumber = $__password = $__confirmPassword = '';
 $__passwordIsNotMatch = $__emailUsed = '';
 if (isset($_POST['__submit'])) {
     $__name = trim($_POST['__name']);
-    $__phoneNumber = trim($_POST['__phoneNumber']);
     $__email = trim($_POST['__email']);
     $__password = trim($_POST['__password']);
     $__confirmPassword = trim($_POST['__confirmPassword']);
@@ -30,7 +29,7 @@ if (isset($_POST['__submit'])) {
 ////            $__emailUsed = "E-mail này đã được sử dụng. Vui lòng đăng ký lại !";
 //        }
 //        else {
-            $__result = mysqli_query($con, "UPDATE users SET `name` ='$__name' , email = '$__email', password = '$__password', phoneNumber =  '$__phoneNumber' WHERE id = '$__id'");
+            $__result = mysqli_query($con, "UPDATE users SET `name` ='$__name' , email = '$__email', password = '$__password' WHERE id = '$__id'");
 
 //        }
 //        header("Location : ../../../public/view/admin/account.php");

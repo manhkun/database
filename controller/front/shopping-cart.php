@@ -1,10 +1,7 @@
 <?php
     session_start();
     $con = mysqli_connect('localhost','root','ngoclyo2210','project_csdl') or die('Unable To connect');
-
-    // include('../../../model/connect.php');
     if(isset($_GET['bookid'])){
-
         $bookID = $_GET['bookid'];
         $userId = $_SESSION['id'];
         $amount = $_SESSION['amount'];
@@ -28,6 +25,7 @@
     if(isset($_GET['delete'])){
         $delId = $_GET['delete'];
         $del = mysqli_query($con, "DELETE FROM cart WHERE id = {$delId}");
+        echo "delete";
         header("Location: ../../public/view/front/shopping-cart.php");
     }
     if(isset($_GET['deleteAll'])){

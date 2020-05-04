@@ -50,7 +50,6 @@
                             <th>STT</th>
                             <th>Tên</th>
                             <th>Email</th>
-                            <th>Số điện thoại</th>
                             <th>Tùy chọn</th>
                         </tr>
                     </thead>
@@ -64,7 +63,6 @@
                             <td>{$index}</td>
                             <td>{$adminInfo['name']}</td>
                             <td>{$adminInfo['email']}</td>
-                            <td>{$adminInfo['phoneNumber']}</td>
                             <td>
                                 <button class=\"btn-delete\" onclick=\"askDelete(this)\" data-id=\"{$adminInfo['id']}\"  >Xóa</button>
                             </td>
@@ -96,13 +94,6 @@
                         <div class="__sublabel">Email</div>
                     </div>
                     <div class="__input"><input type="email" name="email" required></div>
-                    <div class="clear"></div>
-                </div>
-                <div class="__row">
-                    <div class="__label"><span>Số điện thoại *</span>
-                        <div class="__sublabel">Số điện thoại</div>
-                    </div>
-                    <div class="__input"><input type="tel" name="phoneNumber" required></div>
                     <div class="clear"></div>
                 </div>
                 <div class="__row">

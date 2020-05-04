@@ -27,13 +27,7 @@ echo "
                 <div class=\"__input\"><input type=\"email\" name=\"email\" value=\"{$row['email']}\"></div>
                 <div class=\"clear\"></div>
             </div>
-            <div class=\"__row\">
-                <div class=\"__label\"><span>Số điện thoại</span>
-                    <div class=\"__sublabel\">Số điện thoại</div>
-                </div>
-                <div class=\"__input\"><input type=\"\" name=\"phoneNumber\" value=\"{$row['phoneNumber']}\" ></div>
-                <div class=\"clear\"></div>
-            </div>
+        
             <div class=\"__row\">
                 <div class=\"__label\"><span>Mật khẩu</span>
                     <div class=\"__sublabel\">Mật khẩu</div>

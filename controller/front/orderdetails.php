@@ -6,6 +6,9 @@
         $orderdetails = mysqli_query($con, "SELECT * FROM orderdetails WHERE orderId= '$orderID'");
         $orders = mysqli_query($con, "SELECT * FROM orders WHERE orderId= '$orderID'");
         $order = mysqli_fetch_array($orders);
+        $status = "";
+        if($order['status'] == '0') $status = "Đang giao";
+        if($order['status'] == '1') $status = "Đã giao";
         $fee = 0;
         if($order['methodShip'] == 'standard') $fee = 15000;
         if($order['methodShip'] == 'fast') $fee = 25000;

@@ -15,16 +15,6 @@
         <div class="loader"></div>
     </div>
     
-    <!-- Search model -->
-	<!-- <div class="search-model">
-		<div class="h-100 d-flex align-items-center justify-content-center">
-			<div class="search-close-switch">+</div>
-			<form class="search-model-form">
-				<input type="text" id="search-input" placeholder="Tìm kiếm.....">
-			</form>
-		</div>
-	</div> -->
-	<!-- Search model end -->
 
     <!-- Header Section Begin -->
     <?php
@@ -101,20 +91,18 @@
                                     <label for="one">
                                         <span>Họ tên người nhận</span>
                                         <?php echo $order['customerName']?>
-                                        
                                     </label>
                                 </div>
                                 <div class="cs-item">
                                     <label for="two">
                                         <span>Địa chỉ giao hàng</span>
                                         <?php echo $order['address']?>
-                                        
                                     </label>
                                 </div>
                                 <div class="cs-item">
                                     <label for="three">
                                         <span>Tình trạng giao hàng</span>
-                                        <?php echo $order['status']?>
+                                        <?php echo $status?>
                                     </label>
                                 </div>
                             </div>

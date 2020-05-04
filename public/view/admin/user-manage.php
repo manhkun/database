@@ -39,7 +39,6 @@
                         <th>STT</th>
                         <th>Họ tên</th>
                         <th>Email</th>
-                        <th>Số điện thoại</th>
 <!--                        <th>Mật khẩu</th>-->
                         <th>Tùy chọn</th>
                     </tr>

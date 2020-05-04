@@ -1,7 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="003da691-5d77-4a05-9a04-07caae8a79fb" name="Default Changelist" comment="" />
+    <list default="true" id="003da691-5d77-4a05-9a04-07caae8a79fb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/controller/admin/create/administrator.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/admin/create/administrator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/admin/edit_data/adminEdit.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/admin/edit_data/adminEdit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/admin/form_edit/form-admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/admin/form_edit/form-admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/admin/form_edit/form-user.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/admin/form_edit/form-user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/admin/orders-manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/admin/orders-manage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/admin/user-manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/admin/user-manage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/front/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/front/categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/front/check-out.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/front/check-out.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/front/orderdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/front/orderdetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/front/orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/front/orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/front/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/front/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/front/shopping-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/front/shopping-cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/icons/cancel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/icons/orders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/icons/users.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/icons/x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/products/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/products/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/products/x.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/admin/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/admin/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/admin/user-manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/admin/user-manage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/front/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/front/categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/front/check-out.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/front/check-out.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/front/orderdetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/front/orderdetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/front/orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/front/orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/front/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/front/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/front/shopping-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/front/shopping-cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/layouts/admin/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/layouts/admin/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/layouts/front/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/layouts/front/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/layouts/front/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/layouts/front/header.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +87,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
@@ -85,6 +119,7 @@
       <option name="presentableId" value="Default" />
       <updated>1586535482336</updated>
       <workItem from="1586535484091" duration="3340000" />
+      <workItem from="1588612795449" duration="8000" />
     </task>
     <servers />
   </component>

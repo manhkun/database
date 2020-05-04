@@ -13,6 +13,11 @@
                 $result = mysqli_query($con, "SELECT * FROM books ORDER BY price DESC");;
                 break;
         }
+    }  
+    //search
+    elseif(isset($_GET['search'])){
+        $name = $_GET['nameBook'];
+        $result = mysqli_query($con, "SELECT *, MATCH (`name`, `description`, `author`, `category`) AGAINST ('{$name}') as score FROM books WHERE MATCH (`name`, `description`, `author`, `category`) AGAINST ('{$name}') > 0 ORDER BY score DESC");
     }
     else $result = mysqli_query($con, "SELECT * FROM books");
 ?>

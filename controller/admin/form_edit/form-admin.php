@@ -24,13 +24,7 @@ echo "
                     <div id=\"_checkMail\" class=\"__input\"><input type=\"email\" name=\"__email\" value=\"{$___admin['email']}\" required></div>
                     <div class=\"clear\"></div>
                 </div>
-                <div class=\"__row\">
-                    <div class=\"__label\"><span>Số điện thoại *</span>
-                        <div class=\"__sublabel\">Số điện thoại</div>
-                    </div>
-                    <div class=\"__input\"><input type=\"tel\" name=\"__phoneNumber\" value=\"{$___admin['phoneNumber']}\" required></div>
-                    <div class=\"clear\"></div>
-                </div>
+                
                 <div class=\"__row\">
                     <div id=\"_checkPass\" class=\"__label\"><span>Mật khẩu *</span>
                         <div class=\"__sublabel\">Tối thiểu 6 kí tự</div>

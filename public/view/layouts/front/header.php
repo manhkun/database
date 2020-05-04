@@ -6,7 +6,8 @@
                 </div>
                
                 <div class="header-right">
-                    <!-- <img src="../../../img/icons/search.png" alt="" class="search-trigger"> -->
+                    <img src="../../../img/icons/search.png" alt="" class="search-trigger">
+                    
                     <img src="../../../img/icons/man.png" alt="">
                    
                     <?php
@@ -17,6 +18,7 @@
                         }
                     ?>
                 </div>
+                
                 
                 <div class="user-access">
                     <?php

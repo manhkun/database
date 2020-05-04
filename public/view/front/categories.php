@@ -16,14 +16,15 @@
     </div>
     
     <!-- Search model -->
-	<!-- <div class="search-model">
+	<div class="search-model">
 		<div class="h-100 d-flex align-items-center justify-content-center">
 			<div class="search-close-switch">+</div>
-			<form class="search-model-form">
-				<input type="text" id="search-input" placeholder="Tìm kiếm.....">
+			<form class="search-model-form" method="GET">
+                <input type="text" id="search-input" name="nameBook" placeholder="Tìm kiếm.....">
+                <button class="btn btn-dark" type="submit" name="search"><i class="fa fa-search" aria-hidden="true"></i></button>
 			</form>
 		</div>
-	</div> -->
+    </div>
 	<!-- Search model end -->
 
     <!-- Header Section Begin -->

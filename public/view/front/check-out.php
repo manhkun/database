@@ -68,10 +68,10 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-2">
-                                <p class="in-name">Số nhà</p>
+                                <p class="in-name">Số nhà*</p>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" name="apartmentNumber">
+                                <input type="text" name="apartmentNumber" required>
                             </div>
                         </div>
                         <div class="row">

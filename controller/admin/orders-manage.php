@@ -3,8 +3,8 @@
     $result = mysqli_query($con, "SELECT *  FROM orders ");
     $stt =1;
     while ($row = mysqli_fetch_array($result)) {
-        $id= $row['id'];
-        $name = mysqli_fetch_array(mysqli_query($con, "SELECT name FROM orders , users WHERE orders.userId = users.id AND orders.id = '$id' "));
+        $id= $row['orderId'];
+        $name = mysqli_fetch_array(mysqli_query($con, "SELECT name FROM orders , users WHERE orders.userId = users.id AND orders.orderId = '$id' "));
         echo "
                 <tr>
                     <td>{$stt}</td>

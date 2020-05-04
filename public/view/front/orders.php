@@ -6,12 +6,8 @@
     ?>
 </head>
 <body>
-
     <?php
-        // session_start();
-        
         include('../../../controller/front/orders.php');
-        
     ?>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -70,41 +66,58 @@
                     <tbody> 
                         <?php
                         while($order = mysqli_fetch_array($temp)){
-                            if($order['methodShip'] == 'standard') $order['methodShip'] = "Tiêu chuẩn";
-                            elseif($order['methodShip'] == 'fast') $order['methodShip'] = "Nhanh";
-                            elseif($order['methodShip'] == 'express') $order['methodShip'] = "Hỏa tốc";
+                            $checkShip = false;
+                            $datediff = mysqli_fetch_array(mysqli_query($con, "SELECT ROUND(DATEDIFF(NOW(), `orderDate`)) as Date FROM orders WHERE orderId = '{$order['orderId']}'"));
+                            if($order['methodShip'] == 'standard'){
+                                $order['methodShip'] = "Tiêu chuẩn";
+                                if($datediff['Date'] >= 4) $checkShip = true;
+                            }
+                            elseif($order['methodShip'] == 'fast'){
+                                $order['methodShip'] = "Nhanh";
+                                if($datediff['Date'] >= 2) $checkShip = true;
+                            }
+                            elseif($order['methodShip'] == 'express'){
+                                $order['methodShip'] = "Hỏa tốc";
+                                if($datediff['Date'] >= 1) $checkShip = true;
+                            }
+                            if($checkShip){
+                                // thay doi status
+                                $status = mysqli_query($con, "UPDATE `orders` SET status = '1' WHERE orderId = '{$order['orderId']}' ");
+                            } 
+                            $status = "";
+                            if($order['status'] == '0') $status = "Đang giao";
+                            if($order['status'] == '1') $status = "Đã giao";
+                            $result = "";
+                            $idofBooks = mysqli_query($con, "SELECT bookId FROM `orderdetails` WHERE orderId =  '{$order['orderId']}'");
+                            while($idofBook = mysqli_fetch_array($idofBooks)){
+                                $nameofBook = mysqli_fetch_array(mysqli_query($con, "SELECT name FROM books WHERE id = {$idofBook['bookId']}"));
+                                $result.= "<td class=\"product-col\">
+                                <div class=\"p-title\">
+                                    <h5>" . $nameofBook['name'] ."</h5>
+                                </div>
+                                </td>" . "\n";
+                            }
                             echo"
                                 <tr>
-                                <td class=\"product-col\">
-                                    <div class=\"p-title\">
-                                        <h5>{$order['nameofBooks']}</h5>
-                                    </div>
-                                </td>
-                                <td class=\"price-col\"><a style=\"color: #999\" href=\"./orderdetails.php?orderId={$order['orderId']}\">{$order['orderId']}</a></td>
+                                " . $result .
+                                "<td class=\"price-col\"><a style=\"color: #999\" href=\"./orderdetails.php?orderId={$order['orderId']}\">{$order['orderId']}</a></td>
                                 <td class=\"quantity-col\">                                   
                                     <h5>{$order['methodShip']}</h5>
                                 </td>
                                 <td class=\"total\">{$order['orderDate']}</td>
-                                <td class=\"product-close\">{$order['status']}</td>
-                                </tr>   
-                                ";
-                        }
+                                <td class=\"product-close\">{$status}</td>
+                                </tr>  
+                                ";   
+                        }   
                         ?>
-
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <!-- Cart Page Section End -->
-
-    <!-- Footer Section Begin -->
     <?php
         include('../layouts/front/footer.php');
     ?>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
     <?php
         include('../layouts/front/embed.js.php');
     ?>

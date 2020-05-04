@@ -8,7 +8,6 @@
                 <td>$t</td>
                 <td>{$row['name']}</td>
                 <td>{$row['email']}</td>
-                <td>{$row['phoneNumber']}</td>
                 <td>
                  <!--   <button class=\"btn-view\" >Xem</button> -->
                     <button onclick='getData(this)' class=\"btn-edit\" data-id=\"{$row['id']}\" >Sửa</button>

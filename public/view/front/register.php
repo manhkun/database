@@ -91,7 +91,6 @@
                             <div class="col-lg-12">
                                 <input type="text" name="name" required placeholder="Tên">
                                 <input type="email" name="email" required placeholder="E-mail">
-                                <input type="tel" name="phoneNumber" required placeholder="Số điện thoại">
                                 <input type="password" name="password" required placeholder="Mật khẩu">
                                 <input type="password" name="confirmPassword" required placeholder="Nhập lại mật khẩu">
                                
