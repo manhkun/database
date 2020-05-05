@@ -16,7 +16,7 @@
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css">
 </head>
 <body>
     <?php
@@ -32,14 +32,40 @@
         <div class="content-body">
             <div class="_btn-select"  >
                 <a  href="#modal-popup-create" rel="modal:open">Thêm Quản Trị</a>
-                <a class=\"btn-edit\" data-id="<?php  echo"{$_SESSION["id"]}" ?>" onclick='getData(this)'>Sửa Thông tin</a>
+                <a class="btn-edit" data-id="<?php  echo"{$_SESSION["id"]}" ?>" onclick='getData(this)'>Sửa Thông tin</a>
             </div>
             <div class="_administratorInfo">
                 <div class="_header_info ">
-                    <h2>Tài khoản </h2>
+                    <h2>Tài khoản đang đăng nhập</h2>
                 </div>
                 <div class="_header_info ">
+                    <?php
+                    $adminInNow =  mysqli_fetch_array( mysqli_query($con, "SELECT *  FROM users  WHERE id = '{$_SESSION['id']}' "));
+                    echo "
+                        <ul>
+                            <li>
+                                <div class=\"_col\">
+                                    <label>Avata: </label>
+                                    <div>
+                                        <img width= 300 height= 200 style=\"object-fit: cover\" src=\"../../../img/avt.jpg\">
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=\"_col _name\">
+                                    <p>Tên tài khoản: {$adminInNow['name']} </p>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <div class=\"_col\">
+                                    <p>Email: {$adminInNow['email']}</p>
+                                </div>
+                            </li>
+                        </ul>
+                        ";
 
+                    ?>
                 </div>
             </div>
             <div class="_listAdmin">
@@ -55,21 +81,21 @@
                     </thead>
                     <tbody>
                     <?php
-                    $arrayAdmin= mysqli_query($con, "SELECT *  FROM users  WHERE id != '{$_SESSION['id']}' AND authorization = '0' ");
-                    $index = 1;
-                    while($adminInfo= mysqli_fetch_array($arrayAdmin)){
-                        echo "
-                        <tr>
-                            <td>{$index}</td>
-                            <td>{$adminInfo['name']}</td>
-                            <td>{$adminInfo['email']}</td>
-                            <td>
-                                <button class=\"btn-delete\" onclick=\"askDelete(this)\" data-id=\"{$adminInfo['id']}\"  >Xóa</button>
-                            </td>
-                        </tr>
-                        ";
-                        $index ++;
-                    }
+                        $arrayAdmin= mysqli_query($con, "SELECT *  FROM users  WHERE id != '{$_SESSION['id']}' AND authorization = 0 ");
+                        $index = 1;
+                        while($adminInfo= mysqli_fetch_array($arrayAdmin)){
+                            echo "
+                            <tr>
+                                <td>{$index}</td>
+                                <td>{$adminInfo['name']}</td>
+                                <td>{$adminInfo['email']}</td>
+                                <td>
+                                    <button class=\"btn-delete\" onclick=\"askDelete(this)\" data-id=\"{$adminInfo['id']}\"  >Xóa</button>
+                                </td>
+                            </tr>
+                            ";
+                            $index ++;
+                        }
                     ?>
 
                     </tbody>

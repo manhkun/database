@@ -29,8 +29,8 @@ if (isset($_POST['submit'])) {
 //
 //            $emailUsed = "E-mail này đã được sử dụng. Vui lòng đăng ký lại !";
 //        } else {
-            $result = mysqli_query($con, "INSERT INTO users (name, email, password, phoneNumber, authorization ) VALUE ('$name' , '$email', '$password' , 0  )");
-            header("Location : ../../../public/view/admin/account.php");
+            $result = mysqli_query($con, "INSERT INTO users (name, email, password,  authorization ) VALUE ('$name' , '$email', '$password' , 0  )");
+            header("Location: ../../../public/view/admin/account.php");
             exit();
 //
 //            exit();

@@ -5,8 +5,10 @@
         <div class="header-right">
             <div class="user-access row">
                 <?php
+                    include('../../../model/connect.php');
+                   $adminInNow =  mysqli_fetch_array( mysqli_query($con, "SELECT *  FROM users  WHERE id = '{$_SESSION['id']}' "));
                     if(isset($_SESSION['name'])){
-                        echo "  <a href=\"./index.php\">{$_SESSION['name']}</a>";
+                        echo "  <a href=\"./index.php\">{$adminInNow['name']}</a>";
                     }
                 ?>
             </div>  
@@ -15,6 +17,7 @@
             </div>
             <div class="logout row">
                 <?php
+                
                 if(isset($_SESSION['name'])){
                     echo "   <a href=\"../../../controller/admin/logout.php\">
                                     <img src=\"../../../img/icons/log_out.png\" title=\"Đăng xuất\"  alt=\"\">

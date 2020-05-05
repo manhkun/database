@@ -8,8 +8,20 @@ if (isset($_GET['orderId'])) {
     elseif($row['methodShip']= 'fast') $methodShip= 'Nhận hàng sau 1-2 ngày';
     else $methodShip= 'Nhận hàng trong ngày';
 
+    if($row['status'] == '0') $status = "Đang giao";
+    else if($row['status'] == '1') $status = "Đã giao";
+
+
+    
+    $emailOfUser = mysqli_fetch_array(mysqli_query($con, "SELECT email FROM orders , users WHERE orders.userId = users.id AND orders.orderId = '{$row['orderId']}' "));
+    
     echo "
         <ol>
+            <li>
+                <div class=\"_col _emai\">
+                    <p>Email tài khoản mua hàng: {$emailOfUser['email']}</p>
+                </div>
+            </li>
             <li>
                 <div class=\"_col _name\">
                     <p>Mã hóa đơn: {$row['orderId']}</p>
@@ -89,7 +101,7 @@ if (isset($_GET['orderId'])) {
             </li>
             <li>
                 <div class=\"_col\">
-                    <p>Trạng thái vận chuyển : {$row['status']}</p>
+                    <p>Trạng thái vận chuyển : {$status}</p>
                 
                 </div>
             </li>

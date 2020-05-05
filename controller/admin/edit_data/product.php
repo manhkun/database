@@ -2,7 +2,7 @@
     include('../../../model/connect.php');
     $id = trim($_POST['id']);
     $name = trim($_POST['name']);
-    if(isset($_FILES['newImage']) && $_FILES['newImage'] !=""){
+    if(is_file($_FILES['newImage'])){
         $img = $_FILES['newImage']['name'];
         $file_tmp = $_FILES['newImage']['tmp_name'];
         move_uploaded_file($file_tmp  , "../../../img/products/$img");

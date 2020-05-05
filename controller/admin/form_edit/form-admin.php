@@ -10,6 +10,9 @@ echo "
                 <div class=\"__header\">
                     <span>Chỉnh sửa thông tin</span>
                 </div>
+                <div class=\"__hidden\">
+                    <input type=\"hidden\" name=\"__id\" value=\"{$__id}\">
+                </div>
                 <div class=\"__row\">
                     <div class=\"__label\"><span>Tên quản trị viên*</span>
                         <div class=\"__sublabel\">Tên quản trị viên</div>
@@ -45,7 +48,7 @@ echo "
 
                 <div class=\"__buttons\">
                     <input type=\"button\" class=\"cancle __button\" onclick=\"closeForm()\" value=\"Cancle\">
-                    <input type=\"submit\" class=\"submit __button\"  onclick='validate()' name =\"submit\" value=\"Submit\">
+                    <input type=\"submit\" class=\"submit __button\"   name =\"submit\" value=\"Submit\">
                 </div>
                 
             </form>

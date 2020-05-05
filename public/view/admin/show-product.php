@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../css/admin/index.css" type="text/css">
     <link rel="stylesheet" href="../../css/admin/show.css" type="text/css">
 
-
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css">
 </head>
 <body>
 <?php
