@@ -12,7 +12,7 @@
         $fee = 0;
         if($order['methodShip'] == 'standard') $fee = 15000;
         if($order['methodShip'] == 'fast') $fee = 25000;
-        if($order['methodShip'] == 'standard') $fee = 40000;
+        if($order['methodShip'] == 'express') $fee = 40000;
         $sum = mysqli_query($con, "SELECT SUM(`totalPayment`) as `totalPayment`, SUM(`quantity`) as `sumQuantity` FROM orderdetails WHERE orderId = '{$orderID}'");
         $total = mysqli_fetch_array($sum);
         $totalPayment = $total['totalPayment'];
