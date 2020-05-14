@@ -104,13 +104,32 @@
             <div class="__input"><input type="text" name="author"  required></div>
             <div class="clear"></div>
         </div>
-        <div class="__row">
+        <!-- <div class="__row">
             <div class="__label"><span>Thể loại *</span>
                 <div class="__sublabel">Thể loại</div>
             </div>
             <div class="__input"><input type="text" name="category" required ></div>
             <div class="clear"></div>
+        </div> -->
+
+
+
+        <div class="__row">
+            <div class="__label"><span>Thể loại *</span>
+                <div class="__sublabel">Thể loại</div>
+            </div>
+            <div class="__input">
+                <select name="category" required>
+                    <option>Tiểu thuyết</option>
+                    <option>Khoa học</option>
+                    <option>Truyện tranh</option>
+                </select>
+            </div>
+            <div class="clear"></div>
         </div>
+
+
+
         <div class="__row">
             <div class="__label"><span>Thông tin chi tiết *</span>
                 <div class="__sublabel">Thông tin chi tiết</div>
@@ -130,7 +149,7 @@
             <div class="__label"><span>Ngày vào kho *</span>
                 <div class="__sublabel">Ngày vào kho</div>
             </div>
-            <div class="__input"><input type="date" name="dateModified" min="2019-1-1" max="2030-1-1" ></div>
+            <div class="__input"><input type="date" name="dateModified" min="2019-1-1" max="2030-1-1" required></div>
             <div class="clear"></div>
         </div>
 

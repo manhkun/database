@@ -46,7 +46,7 @@ function askDelete(elem) {
     }
 }
 
-function validate() {
+// function validate() {
     // $(document).ready(function () {
     //     $('#modal-popup-edit .__form').submit(function (event) {
     //         event.preventDefault();
@@ -64,4 +64,4 @@ function validate() {
     // var pass = document.getElementById("_checkPass");
     // var rePass = document.getElementById("_reCheckPass");
     // if()
-}
+// }

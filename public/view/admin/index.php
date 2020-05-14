@@ -23,6 +23,7 @@
 <body>
     <?php
         session_start();
+        include('../../../model/connect.php');
         include('../../../controller/admin/index.php');
     ?>
     <?php
@@ -48,6 +49,38 @@
                     ?>
                 </tbody>
             </table>
+        </div>
+        
+        <div class= "xxxx">
+            
+        <div><h1>Tổng hợp<h1></div>
+            <div class="_____row">
+                <div class="_____name">Hàng hóa</div>
+                <div class="__amount">
+                    <?php
+                        $result1= mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) AS solg FROM books"));
+                        echo "{$result1['solg']}";
+                    ?>
+                </div>
+            </div>
+            <div class="_____row">
+                <div class="_____name">Người dùng</div>
+                <div class="__amount">
+                    <?php
+                        $result2= mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) AS solg FROM users WHERE authorization = 1 "));
+                        echo "{$result2['solg']}";
+                    ?>
+                </div>
+            </div>
+            <div class="_____row">
+                <div class="_____name">Hóa đơn</div>
+                <div class="__amount">
+                    <?php
+                        $result3= mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) AS solg FROM orders "));
+                        echo "{$result3['solg']}";
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 

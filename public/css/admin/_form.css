@@ -61,6 +61,13 @@
                 resize: none;
             }
 
+            .__form .__row .__input select {
+                box-sizing: border-box;
+                border-radius: 2px;
+                padding: 6px 8px;
+                border: 1px solid #999;
+                width: 100%;
+            }
 
         .__form .__row .__input.disabled > input {
             pointer-events: none;

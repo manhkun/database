@@ -44,26 +44,40 @@ echo "
                 <div class=\"__input\"><input type=\"text\" name=\"author\" value=\"{$row['author']}\" ></div>
                 <div class=\"clear\"></div>
             </div>
+       
+
             <div class=\"__row\">
-                <div class=\"__label\"><span>Thể loại</span>
+                <div class=\"__label\"><span>Thể loại </span>
                     <div class=\"__sublabel\">Thể loại</div>
                 </div>
-                <div class=\"__input\"><input type=\"text\" name=\"category\" value=\"{$row['category']}\" ></div>
+                <div class=\"__input\">
+                    <select name=\"category\"  >
+                        <option>{$row['category']}</option>
+                        <option>Tiểu thuyết</option>
+                        <option>Khoa học</option>
+                        <option>Truyện tranh</option>
+                    </select>
+                </div>
                 <div class=\"clear\"></div>
-            </div><div class=\"__row\">
+            </div>
+
+            <div class=\"__row\">
                 <div class=\"__label\"><span>Thông tin chi tiết</span>
                     <div class=\"__sublabel\">Thông tin chi tiết</div>
                 </div>
                 <div class=\"__input\"><textarea type=\"text\" name=\"description\"  >{$row['description']}</textarea></div>
                 <div class=\"clear\"></div>
-            </div><div class=\"__row\">
+            </div>
+            <div class=\"__row\">
                 <div class=\"__label\"><span>Số lượng trong kho</span>
                     <div class=\"__sublabel\">Số lượng trong kho</div>
                 </div>
-                <div class=\"__input\"><input type=\"number\" name=\"amount\" value=\"{$row['amount']}\"></div>
+                <div class=\"__input\"><input type=\"number\" name=\"amount\" min=\"10\" value=\"{$row['amount']}\"></div>
                 <div class=\"clear\"></div>
             </div>
-            </div><div class=\"__row\">
+           
+
+            <div class=\"__row\">
                 <div class=\"__label\"><span>Ngày vào kho</span>
                     <div class=\"__sublabel\">Ngày vào kho</div>
                 </div>

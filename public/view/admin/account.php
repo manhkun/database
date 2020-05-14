@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,6 +41,12 @@
                 <div class="_header_info ">
                     <?php
                     $adminInNow =  mysqli_fetch_array( mysqli_query($con, "SELECT *  FROM users  WHERE id = '{$_SESSION['id']}' "));
+
+                    $format = "%H:%M:%S %d-%B-%Y";
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+                    $timestamp = time();
+                    $strTime = strftime($format, $timestamp );
+
                     echo "
                         <ul>
                             <li>
@@ -60,6 +66,11 @@
                             <li>
                                 <div class=\"_col\">
                                     <p>Email: {$adminInNow['email']}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=\"_col\">
+                                    <p>Thời gian đăng nhập: {$strTime}</p>
                                 </div>
                             </li>
                         </ul>
@@ -104,7 +115,7 @@
 
         </div>
         <div id="modal-popup-create" class="modal m-800">
-            <form class="__form"  method="POST" action="../../../controller/admin/create/administrator.php" >
+            <form class="__form"  method="POST" action="../../../controller/admin/create/administrator.php" onsubmit="return validateForm()">
                 <div class="__header">
                     <span>Thêm quản trị</span>
                 </div>
@@ -119,21 +130,22 @@
                     <div class="__label"><span>Email *</span>
                         <div class="__sublabel">Email</div>
                     </div>
-                    <div class="__input"><input type="email" name="email" required></div>
+                    <div class="__input"><input id="email" type="email" name="email" required></div>
                     <div class="clear"></div>
                 </div>
                 <div class="__row">
                     <div class="__label"><span>Mật khẩu *</span>
                         <div class="__sublabel">Tối thiểu 6 kí tự</div>
                     </div>
-                    <div class="__input"><input type="password" name="password"  required></div>
+                    <div class="__input"><input id="ps" type="password" name="password"  required></div>
                     <div class="clear"></div>
                 </div>
+                <div id= "message"></div>
                 <div class="__row">
                     <div class="__label"><span>Nhập lại mật khẩu *</span>
                         <div class="__sublabel">Nhập lại mật hẩu</div>
                     </div>
-                    <div class="__input"><input type="password" name="confirmPassword"  required></div>
+                    <div class="__input"><input id= "reps" type="password" name="confirmPassword"  required></div>
                     <div class="clear"></div>
                 </div>
 
@@ -149,6 +161,11 @@
         ?>
         <div id="modal-popup-edit" class="modal m-800">
 
+        </div>
+        <div id="modal-popup-message" class="modal m-500">
+            <div id="emailError"><span> Địa chỉ Email không hợp lệ. Vui lòng nhập lại </span></div>
+            <div id="passLeng"> <span>Vui lòng nhập mật khẩu tối thiếu gồm 6 kí tự </span></div>
+            <div id="passError"><span> Mật khẩu không chính xác, vui lòng kiểm tra lại</span></div>
         </div>
 
     </div>
@@ -173,6 +190,68 @@
 <!--        })-->
 <!--    </script>-->
 
+    <script>
+        function validateForm()
+        {
+            // Bước 1: Lấy giá trị của 
+            
+            var email = document.getElementById('email').value;
+            var ps = document.getElementById('ps').value;
+            var reps = document.getElementById('reps').value;
+        
+            // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
+
+            
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+            if (!filter.test(email)) { 
+                    $('#emailError').modal();
+                    return false; 
+            }
+            if(ps!=reps) {
+                $('#passError').modal();
+                return false;
+                
+            }
+            if(ps==reps){
+                if(ps.length<6){
+                    $('#passLeng').modal();
+                    return false;
+                }
+                else return true;
+            }      
+        }
+    </script>
+    <script>
+        function validateFormEdit()
+        {
+            // Bước 1: Lấy giá trị của 
+            
+            var email = document.getElementById('_email').value;
+            var ps = document.getElementById('_ps').value;
+            var reps = document.getElementById('_reps').value;
+        
+            // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
+
+            
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+            if (!filter.test(email)) { 
+                    $('#emailError').modal();
+                    return false; 
+            }
+            if(ps!=reps) {
+                $('#passError').modal();
+                return false;
+                
+            }
+            if(ps==reps){
+                if(ps.length<6){
+                    $('#passLeng').modal();
+                    return false;
+                }
+                else return true;
+            }      
+        }
+    </script>
     <script src="../../js/admin/adminEdit.js"></script>
 
 </body>

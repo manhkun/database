@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $confirmPassword = trim($_POST['confirmPassword']);
 
 //    // kiểm tra dữ liệu
-//    $isPassed = true;
+    $isPassed = true;
 //    if ($password != $confirmPassword) {
 //
 //        $passwordIsNotMatch = "Xác thực mật khẩu không chính xác, vui lòng nhập lại !";
@@ -21,21 +21,25 @@ if (isset($_POST['submit'])) {
 //
 //    // đăng kí tài khoản nếu hoàn tất phần kiểm tra
 //
-//    if ($isPassed) {
-//        // kiểm tra xem email nhập vào đã tồn tại hay chưa
-//        $result = mysqli_query($con, "SELECT * FROM users WHERE email= '$email' ");
-//        $num = mysqli_num_rows($result);
-//        if ($num > 0) {
-//
-//            $emailUsed = "E-mail này đã được sử dụng. Vui lòng đăng ký lại !";
-//        } else {
+
+
+
+    if ($isPassed) {
+       // kiểm tra xem email nhập vào đã tồn tại hay chưa
+        $result = mysqli_query($con, "SELECT * FROM users WHERE email= '$email' ");
+        $num = mysqli_num_rows($result);
+        if ($num > 0) {
+            $emailUsed = "E-mail này đã được sử dụng. Vui lòng đăng ký lại !";
+        }else {
             $result = mysqli_query($con, "INSERT INTO users (name, email, password,  authorization ) VALUE ('$name' , '$email', '$password' , 0  )");
             header("Location: ../../../public/view/admin/account.php");
             exit();
 //
 //            exit();
-//        }
-//    }
+       }
+    }
 }
+
+echo""
 
 ?>

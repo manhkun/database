@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $con = mysqli_connect('localhost','root','','project_csdl') or die('Unable To connect');
+    $con = mysqli_connect('remotemysql.com','nTpyCUxUar','ogVcgoIvjH','nTpyCUxUar') or die('Unable To connect');
     if(isset($_GET['bookid'])){
         $bookID = $_GET['bookid'];
         $userId = $_SESSION['id'];

@@ -17,7 +17,7 @@ echo "
                 <div class=\"__label\"><span>Tên người dùng *</span>
                     <div class=\"__sublabel\">Tên người dùng</div>
                 </div>
-                <div class=\"__input disabled\"><input type=\"text\" name=\"name\" placeholder=\"Tên người dùng\" value=\"{$row['name']}\" required></div>
+                <div class=\"__input \"><input type=\"text\" name=\"name\" placeholder=\"Tên người dùng\" value=\"{$row['name']}\" required></div>
                 <div class=\"clear\"></div>
             </div>
             <div class=\"__row\">
@@ -32,7 +32,7 @@ echo "
                 <div class=\"__label\"><span>Mật khẩu</span>
                     <div class=\"__sublabel\">Mật khẩu</div>
                 </div>
-                <div class=\"__input disabled\"><input type=\"text\" name=\"password\" value=\"{$row['password']}\" ></div>
+                <div class=\"__input disabled\"><input type=\"password\" name=\"password\" value=\"{$row['password']}\" ></div>
                 <div class=\"clear\"></div>
     
             <div class=\"__buttons\">
