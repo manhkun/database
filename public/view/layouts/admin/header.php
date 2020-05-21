@@ -10,7 +10,7 @@
                     $adminInNow =  mysqli_fetch_array( mysqli_query($con, "SELECT *  FROM admin  WHERE id = '{$_SESSION['id']}' "));
                     if(isset($_SESSION['name'])){
                         echo "  
-                        <img width= 30 height= 30 style=\"object-fit: cover; border-radius: 50%\" src=\"../../../img/avatar/{$adminInNow['avatar']}\">
+                        
                         <a href=\"./account.php\">{$adminInNow['name']}</a>
                         ";
                         
@@ -18,7 +18,9 @@
                 ?>
             </div>  
             <div id="user-logo" class="row">
-                <img  src="../../../img/icons/man.png" alt=""> 
+                <?php
+                    echo "<img width= 30 height= 30 style=\"object-fit: cover; border-radius: 50%\" src=\"../../../img/avatar/{$adminInNow['avatar']}\">"
+                ?>
             </div>
             <div class="logout row">
                 <?php
