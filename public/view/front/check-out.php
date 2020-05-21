@@ -103,7 +103,7 @@
                                 <p class="in-name">Số điện thoại*</p>
                             </div>
                             <div class="col-lg-10">
-                                <input type="text" name="phoneNumber" required>
+                                <input type="tel" name="phoneNumber"  pattern= "0[0-9\s.-]{9}" required>
                             </div>
                         </div>
                     </div>

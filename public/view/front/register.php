@@ -90,7 +90,7 @@
                     <div class="row">
                             <div class="col-lg-12">
                                 <input type="text" name="name" required placeholder="Tên">
-                                <input type="email" name="email" required placeholder="E-mail">
+                                <input type="email" name="email" pattern=".+@.+(\.[a-z]{2,3}){1,2}" required placeholder="E-mail">
                                 <input type="password" name="password" required placeholder="Mật khẩu">
                                 <input type="password" name="confirmPassword" required placeholder="Nhập lại mật khẩu">
                                

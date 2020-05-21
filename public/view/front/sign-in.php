@@ -84,7 +84,7 @@
                     <form action="" method="POST" class="contact-form">
                         <div class="row">
                             <div class="col-lg-12">
-                                <input id="email" type="email" name="email" required placeholder="Email">
+                                <input id="email" type="email" name="email" pattern=".+@.+(\.[a-z]{2,3}){1,2}" required placeholder="Email">
                             </div>
                            
                             <div class="col-lg-12">

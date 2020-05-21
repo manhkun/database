@@ -67,7 +67,7 @@
                 <div class="_____name">Người dùng</div>
                 <div class="__amount">
                     <?php
-                        $result2= mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) AS solg FROM users WHERE authorization = 1 "));
+                        $result2= mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) AS solg FROM users "));
                         echo "{$result2['solg']}";
                     ?>
                 </div>

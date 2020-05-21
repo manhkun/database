@@ -1,6 +1,6 @@
 <?php
     include('../../../model/connect.php');
-    $result = mysqli_query($con, "SELECT *  FROM users WHERE authorization= 1");
+    $result = mysqli_query($con, "SELECT *  FROM users ");
     $t=1;
     while ( $row = mysqli_fetch_array($result)){
         echo "
@@ -8,6 +8,7 @@
                 <td>$t</td>
                 <td>{$row['name']}</td>
                 <td>{$row['email']}</td>
+                <td>{$row['created_at']}</td>
                 <td>
                  <!--   <button class=\"btn-view\" >Xem</button> -->
                     <button onclick='getData(this)' class=\"btn-edit\" data-id=\"{$row['id']}\" >Sửa</button>

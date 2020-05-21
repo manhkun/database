@@ -1,6 +1,6 @@
 <?php
 include('../../../model/connect.php');
-$result = mysqli_query($con, "SELECT *  FROM books ");
+$result = mysqli_query($con, "SELECT *  FROM books ORDER BY dateModified DESC ");
 while ($row = mysqli_fetch_array($result)) {
     $id = (int) $row['id'];
     echo "

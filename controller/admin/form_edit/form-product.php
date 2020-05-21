@@ -81,7 +81,7 @@ echo "
                 <div class=\"__label\"><span>Ngày vào kho</span>
                     <div class=\"__sublabel\">Ngày vào kho</div>
                 </div>
-                <div class=\"__input\"><input type=\"date\" name=\"dateModified\" min=\"2019-1-1\" max=\"2030-1-1\" value=\"{$row['dateModified']}\"></div>
+                <div class=\"__input disabled\"><input type=\"date\" name=\"dateModified\" min=\"2019-1-1\" max=\"2030-1-1\" value=\"{$row['dateModified']}\"></div>
                 <div class=\"clear\"></div>
             </div>
     

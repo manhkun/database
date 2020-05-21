@@ -114,6 +114,8 @@ header {
 
 .content-body ._btn-select{
     float: right;
+    
+    padding-right: 50px;
     display :flex;
 }
 

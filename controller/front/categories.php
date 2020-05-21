@@ -4,10 +4,10 @@
         $sort = $_GET['sortby'];
         switch($sort){
             case 'newest':
-                $result = mysqli_query($con, "SELECT * FROM books ORDER BY dateModified");
+                $result = mysqli_query($con, "SELECT * FROM books ORDER BY dateModified DESC");
                 break;
             case 'priceup':
-                $result = mysqli_query($con, "SELECT * FROM books ORDER BY price");
+                $result = mysqli_query($con, "SELECT * FROM books ORDER BY price ASC");
                 break;
             case 'pricedown':
                 $result = mysqli_query($con, "SELECT * FROM books ORDER BY price DESC");;
@@ -19,5 +19,5 @@
         $name = $_GET['nameBook'];
         $result = mysqli_query($con, "SELECT *, MATCH (`name`, `description`, `author`, `category`) AGAINST ('{$name}') as score FROM books WHERE MATCH (`name`, `description`, `author`, `category`) AGAINST ('{$name}') > 0 ORDER BY score DESC");
     }
-    else $result = mysqli_query($con, "SELECT * FROM books");
+    else $result = mysqli_query($con, "SELECT * FROM books ORDER BY dateModified DESC LIMIT 10");
 ?>

@@ -3,12 +3,17 @@
             <a href="./index.php"><img src="../../../img/logo.png" alt=""></a>
         </div>
         <div class="header-right">
-            <div class="user-access row">
+            <div class="user-access row" style="display: flex">
+                
                 <?php
                     include('../../../model/connect.php');
-                   $adminInNow =  mysqli_fetch_array( mysqli_query($con, "SELECT *  FROM users  WHERE id = '{$_SESSION['id']}' "));
+                    $adminInNow =  mysqli_fetch_array( mysqli_query($con, "SELECT *  FROM admin  WHERE id = '{$_SESSION['id']}' "));
                     if(isset($_SESSION['name'])){
-                        echo "  <a href=\"./index.php\">{$adminInNow['name']}</a>";
+                        echo "  
+                        <img width= 30 height= 30 style=\"object-fit: cover; border-radius: 50%\" src=\"../../../img/avatar/{$adminInNow['avatar']}\">
+                        <a href=\"./account.php\">{$adminInNow['name']}</a>
+                        ";
+                        
                     }
                 ?>
             </div>  

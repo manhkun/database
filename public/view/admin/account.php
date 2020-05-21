@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account</title>
+    <title>Tài khoản</title>
     <script src="../../js/jquery-3.3.1.min.js"></script>
 
     <!-- jQuery Modal -->
@@ -22,7 +22,9 @@
     <?php
         session_start();
         include('../../../model/connect.php');
-//        include('../../../controller/admin/create/administrator.php');
+       include('../../../controller/admin/create/administrator.php');
+       
+       include('../../../controller/admin/edit_data/adminEdit.php');
         include('../layouts/admin/header.php');
     ?>
     <div class ="content">
@@ -40,7 +42,7 @@
                 </div>
                 <div class="_header_info ">
                     <?php
-                    $adminInNow =  mysqli_fetch_array( mysqli_query($con, "SELECT *  FROM users  WHERE id = '{$_SESSION['id']}' "));
+                    $adminInNow =  mysqli_fetch_array( mysqli_query($con, "SELECT *  FROM admin  WHERE id = '{$_SESSION['id']}' "));
 
                     $format = "%H:%M:%S %d-%B-%Y";
                     date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -51,9 +53,9 @@
                         <ul>
                             <li>
                                 <div class=\"_col\">
-                                    <label>Avata: </label>
-                                    <div>
-                                        <img width= 300 height= 200 style=\"object-fit: cover\" src=\"../../../img/avt.jpg\">
+                                    <label></label>
+                                    <div >
+                                        <img width= 200 height= 200 style=\"object-fit: cover; border-radius: 50%\" src=\"../../../img/avatar/{$adminInNow['avatar']}\">
                                     </div>
                                 </div>
                             </li>
@@ -66,6 +68,21 @@
                             <li>
                                 <div class=\"_col\">
                                     <p>Email: {$adminInNow['email']}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=\"_col\">
+                                    <p>Số điện thoại: {$adminInNow['phoneNumber']}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=\"_col\">
+                                    <p>Ngày kích hoạt: {$adminInNow['created_at']}</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class=\"_col\">
+                                    <p>Cập nhật gần đây nhất: {$adminInNow['updated_at']}</p>
                                 </div>
                             </li>
                             <li>
@@ -87,12 +104,13 @@
                             <th>STT</th>
                             <th>Tên</th>
                             <th>Email</th>
+                            <th>Số điện thoại</th>
                             <th>Tùy chọn</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                        $arrayAdmin= mysqli_query($con, "SELECT *  FROM users  WHERE id != '{$_SESSION['id']}' AND authorization = 0 ");
+                        $arrayAdmin= mysqli_query($con, "SELECT *  FROM admin  WHERE id != '{$_SESSION['id']}'  ");
                         $index = 1;
                         while($adminInfo= mysqli_fetch_array($arrayAdmin)){
                             echo "
@@ -100,6 +118,7 @@
                                 <td>{$index}</td>
                                 <td>{$adminInfo['name']}</td>
                                 <td>{$adminInfo['email']}</td>
+                                <td>{$adminInfo['phoneNumber']}</td>
                                 <td>
                                     <button class=\"btn-delete\" onclick=\"askDelete(this)\" data-id=\"{$adminInfo['id']}\"  >Xóa</button>
                                 </td>
@@ -115,10 +134,11 @@
 
         </div>
         <div id="modal-popup-create" class="modal m-800">
-            <form class="__form"  method="POST" action="../../../controller/admin/create/administrator.php" onsubmit="return validateForm()">
+            <form class="__form"  method="POST" action=""  enctype="multipart/form-data" onsubmit= "return validateForm()">
                 <div class="__header">
                     <span>Thêm quản trị</span>
                 </div>
+                
                 <div class="__row">
                     <div class="__label"><span>Tên quản trị viên*</span>
                         <div class="__sublabel">Tên quản trị viên</div>
@@ -127,17 +147,34 @@
                     <div class="clear"></div>
                 </div>
                 <div class="__row">
+                    <div class="__label"><span>Số điện thoại *</span>
+                        <div class="__sublabel">Gồm 10 số bắt đầu từ 0</div>
+                    </div>
+                    <div  class="__input"><input  type="tel" name="phoneNumber"  pattern= "0[0-9\s.-]{9}" required></div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="__row">
+                    <div class="__label"><span>Avatar *</span>
+                        <div class="__sublabel">Ảnh đại diện</div>
+                    </div>
+                    <div class="__input"><input style='border: 0px;' type="file" name="avatar" accept="image/x-png,image/gif,image/jpeg" ></div>
+                    <div class="clear"></div>
+                </div> 
+
+                <div class="__row">
                     <div class="__label"><span>Email *</span>
                         <div class="__sublabel">Email</div>
                     </div>
-                    <div class="__input"><input id="email" type="email" name="email" required></div>
+                    <div class="__input"><input id="email" type="email" name="email" pattern=".+@.+(\.[a-z]{2,3}){1,2}" required></div>
                     <div class="clear"></div>
                 </div>
+                
                 <div class="__row">
                     <div class="__label"><span>Mật khẩu *</span>
-                        <div class="__sublabel">Tối thiểu 6 kí tự</div>
+                        <div class="__sublabel">Tối thiểu gồm 6 kí tự</div>
                     </div>
-                    <div class="__input"><input id="ps" type="password" name="password"  required></div>
+                    <div class="__input"><input id="ps" type="password" name="password" pattern="^.{6,}$" required></div>
                     <div class="clear"></div>
                 </div>
                 <div id= "message"></div>
@@ -145,7 +182,7 @@
                     <div class="__label"><span>Nhập lại mật khẩu *</span>
                         <div class="__sublabel">Nhập lại mật hẩu</div>
                     </div>
-                    <div class="__input"><input id= "reps" type="password" name="confirmPassword"  required></div>
+                    <div class="__input"><input id= "reps" type="password" name="confirmPassword" pattern="^.{6,}$" required></div>
                     <div class="clear"></div>
                 </div>
 
@@ -155,21 +192,23 @@
                 </div>
             </form>
         </div>
-
-        <?php
-
-        ?>
+        <!-- <div class="__hidden">
+            <input id="ischeck" type="hidden" name="isPassed" value="<?php echo $isPassed ?>">
+        </div> -->
+       
         <div id="modal-popup-edit" class="modal m-800">
+            
 
         </div>
+        
         <div id="modal-popup-message" class="modal m-500">
-            <div id="emailError"><span> Địa chỉ Email không hợp lệ. Vui lòng nhập lại </span></div>
-            <div id="passLeng"> <span>Vui lòng nhập mật khẩu tối thiếu gồm 6 kí tự </span></div>
-            <div id="passError"><span> Mật khẩu không chính xác, vui lòng kiểm tra lại</span></div>
+            <!-- <div id="emailError"><span> Địa chỉ Email không hợp lệ. Vui lòng nhập lại </span></div> -->
+            <!-- <div id="passLeng"> <span> Vui lòng nhập mật khẩu tối thiếu gồm 6 kí tự </span></div> -->
+            <div id="passError"><span> Mật khẩu không chính xác, vui lòng kiểm tra lại</span></div>            
+            <!-- <div id="isPassed" ><span> E-mail này đã được sử dụng. Vui lòng đăng ký lại !</span></div> -->
         </div>
-
     </div>
-
+    <!-- action="../../../controller/admin/create/administrator.php" -->
     <script>
         $('#table_id').DataTable();
     </script>
@@ -195,30 +234,37 @@
         {
             // Bước 1: Lấy giá trị của 
             
-            var email = document.getElementById('email').value;
+            // var email = document.getElementById('email').value;
             var ps = document.getElementById('ps').value;
-            var reps = document.getElementById('reps').value;
-        
+            var reps = document.getElementById('reps').value; 
+            // var isPassed = document.getElementById('ischeck').value;
             // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
 
             
-            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-            if (!filter.test(email)) { 
-                    $('#emailError').modal();
-                    return false; 
-            }
+            // var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+            // if (!filter.test(email)) { 
+            //         $('#emailError').modal();
+            //         return false; 
+            // }
             if(ps!=reps) {
                 $('#passError').modal();
                 return false;
                 
             }
+            // if(isPassed= 1){
+            //     $('#check').modal();
+            //     return false;
+            // }
             if(ps==reps){
-                if(ps.length<6){
-                    $('#passLeng').modal();
-                    return false;
-                }
-                else return true;
-            }      
+                // if(ps.length<6){
+                //     $('#passLeng').modal();
+                //     return false;
+                // }
+                // else 
+                return true;
+            }  
+            
+            
         }
     </script>
     <script>
@@ -226,29 +272,30 @@
         {
             // Bước 1: Lấy giá trị của 
             
-            var email = document.getElementById('_email').value;
+            // var email = document.getElementById('_email').value;
             var ps = document.getElementById('_ps').value;
             var reps = document.getElementById('_reps').value;
         
             // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
 
             
-            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-            if (!filter.test(email)) { 
-                    $('#emailError').modal();
-                    return false; 
-            }
+            // var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+            // if (!filter.test(email)) { 
+            //         $('#emailError').modal();
+            //         return false; 
+            // }
             if(ps!=reps) {
                 $('#passError').modal();
                 return false;
                 
             }
             if(ps==reps){
-                if(ps.length<6){
-                    $('#passLeng').modal();
-                    return false;
-                }
-                else return true;
+                // if(ps.length<6){
+                //     $('#passLeng').modal();
+                //     return false;
+                // }
+                // else
+                 return true;
             }      
         }
     </script>
@@ -256,3 +303,4 @@
 
 </body>
 </html>
+

@@ -39,7 +39,7 @@
                         <th>STT</th>
                         <th>Họ tên</th>
                         <th>Email</th>
-<!--                        <th>Mật khẩu</th>-->
+                        <th>Ngày tạo</th>
                         <th>Tùy chọn</th>
                     </tr>
                 </thead>
