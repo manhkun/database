@@ -103,10 +103,11 @@ b. Các yêu cầu về dữ liệu cần lưu trữ:
         1. Quan hệ "Chứa" -> Chi tiết hóa đơn(Mã hóa đơn, Mã sách, Số lượng, Tổng tiền)
 * Kết quả thu được: Lược đồ quan hệ:
 
-
 ![Relational Model](img/RelationalModel.png)
 
 Lược đồ quan hệ trên MySQL:
+
+
 ![Relational Model](img/databaseEER.png)
 
 ### <strong>III. CÁC CÂU LỆNH TRUY VẤN SQL </strong>
