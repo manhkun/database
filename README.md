@@ -106,9 +106,8 @@ b. Các yêu cầu về dữ liệu cần lưu trữ:
 
 ![Relational Model](img/RelationalModel.png)
 
-    Lược đồ quan hệ trên MySQL:
-
-    ![Relational Model](img/databaseEER.png)
+Lược đồ quan hệ trên MySQL:
+![Relational Model](img/databaseEER.png)
 
 ### <strong>III. CÁC CÂU LỆNH TRUY VẤN SQL </strong>
 #### 1. Các truy vấn liên quan đến thao tác của khách hàng và lấy dữ liệu trong CSDL
