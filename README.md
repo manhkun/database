@@ -113,7 +113,7 @@ Lược đồ quan hệ trên MySQL:
 ### <strong>III. CÁC CÂU LỆNH TRUY VẤN SQL </strong>
 #### 1. Các truy vấn liên quan đến thao tác của khách hàng và lấy dữ liệu trong CSDL
 * Đăng ký:
-    * Kiểm tra xem email có tồn tại hay không:
+    * Kiểm tra xem email có tồn tại hay không (Nếu đã tồn tại sẽ trả về bảng có số hàng > 0):
     ~~~~sql
     SELECT * FROM users WHERE email= '$email'
     ~~~~
