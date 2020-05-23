@@ -249,7 +249,7 @@ Lược đồ quan hệ trên MySQL:
 * Doanh thu và hóa đơn:
     * Tính thông số lượng bán và doanh thu của cửa hàng:
     ~~~sql
-    SELECT orders.orderDate, SUM(totalPayment) AS total FROM `orderdetails`, ordersWHERE orderdetails.orderId=orders.orderId GROUP BY orders.orderDate
+    SELECT orders.orderDate, SUM(totalPayment) AS total FROM `orderdetails`, orders WHERE orderdetails.orderId=orders.orderId GROUP BY orders.orderDate
     ~~~
 
         
