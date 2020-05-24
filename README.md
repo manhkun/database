@@ -160,7 +160,7 @@ Lược đồ quan hệ trên MySQL:
     SELECT * FROM books 
     WHERE (category = '$category' OR author = '$author') AND NOT id = '$id'
     ~~~
-    * Tiến hành trừ số lượng hàng hóa trong kho khi sản phẩm được mua
+    * Tiến hành trừ số lượng hàng hóa trong kho (đây là hoạt động tự động khi sản phẩm được mua)
     ~~~sql
     UPDATE books 
     SET amount = ({$amountofBooks['amount']} - {$product['quantity']}) , updated_at = NOW() 
