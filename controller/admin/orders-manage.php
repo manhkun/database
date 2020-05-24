@@ -1,6 +1,6 @@
 <?php
     include('../../../model/connect.php');
-    $result = mysqli_query($con, "SELECT *  FROM orders ");
+    $result = mysqli_query($con, "SELECT *  FROM orders ORDER BY orderDate DESC ");
     $stt =1;
     while ($row = mysqli_fetch_array($result)) {
         $id= $row['orderId'];

@@ -135,7 +135,7 @@
                         <div class=\"col-lg-3 col-sm-6 mix all {$category}\">
                             <div class=\"single-product-item\">
                                 <figure>
-                                    <a href=\"./product-page.php?id={$row['id']}\"><img src=\"../../../img/products/{$row['image']}\" alt=\"\"></a>
+                                    <a href=\"./product-page.php?id={$row['id']}\"><img width= 270 height= 370 style=\"object-fit: cover;\" src=\"../../../img/products/{$row['image']}\" alt=\"\"></a>
                                     <div class=\"p-status\">new</div>
                                 </figure>
                                 <div class=\"product-text\">

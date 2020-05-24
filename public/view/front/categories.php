@@ -80,7 +80,7 @@
                                 <div class=\"single-product-item\">
                                 <a href=\"./product-page.php?id={$row['id']}\">
                                     <figure>
-                                        <img src=\"../../../img/products/{$row['image']}\" alt=\"\">
+                                        <img width= 270 height= 370 style=\"object-fit: cover;\" src=\"../../../img/products/{$row['image']}\" alt=\"\">
                                         <div class=\"p-status\">new</div>
                                     </figure>
                                 </a>    

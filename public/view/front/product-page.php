@@ -67,7 +67,11 @@
                 ?>
             </div>
             <div class="row">
-                <?php
+            <?php
+                    $limit = '';
+                    if(isset($_SESSION['limit'])){
+                        $limit = $_SESSION['limit'];
+                    }
                     echo"<div class=\"col-lg-6\">
                             <div class=\"product-slider owl-carousel\">
                                 <div class=\"product-img\">
@@ -102,7 +106,9 @@
                             <ul class=\"tags\">
                                 <li><span>Thể loại :</span>{$row['category']}</li>
                                 <li><span>Tác giả :</span> {$row['author']}</li>
+                                <li><span>Số lượng :</span> {$row['amount']}</li>
                             </ul>
+                            <p style=\"color: red\">{$limit}</p>
                             <form action=\"\" method=\"POST\" class=\"contact-form\">
                                 <div class=\"row\">
                                     <div class=\"product-quantity\">
@@ -142,7 +148,7 @@
                         <div class=\"col-lg-3 col-sm-6\">
                         <div class=\"single-product-item\">
                             <figure>
-                                <a href=\"./product-page.php?id={$product['id']}\"><img src=\"../../../img/products/{$product['image']}\" alt=\"\"></a>
+                                <a href=\"./product-page.php?id={$product['id']}\"><img width= 270 height= 370 style=\"object-fit: cover;\" src=\"../../../img/products/{$product['image']}\" alt=\"\"></a>
                                 <div class=\"p-status\">new</div>
                             </figure>
                             <div class=\"product-text\">

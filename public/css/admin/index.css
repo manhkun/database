@@ -229,3 +229,15 @@ th {
   background-color: #59865b;
   color: white;
 }
+
+
+
+#table_id_filter  input{
+    border: 0;
+    width: fit-content;
+    border-bottom: 2px solid #486877;
+    color: #838383;
+    font-size: 12px;
+    font-weight: 100;
+    margin-bottom: 31px;
+}

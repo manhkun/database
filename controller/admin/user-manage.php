@@ -1,6 +1,6 @@
 <?php
     include('../../../model/connect.php');
-    $result = mysqli_query($con, "SELECT *  FROM users ");
+    $result = mysqli_query($con, "SELECT *  FROM users ORDER BY created_at DESC");
     $t=1;
     while ( $row = mysqli_fetch_array($result)){
         echo "

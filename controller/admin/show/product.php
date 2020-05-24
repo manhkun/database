@@ -43,12 +43,17 @@
             </li>
             <li>
                 <div class=\"_col\">
-                    <p>Số lượng trong kho: {$row['amount']}</p>
+                    <p>Số lượng còn trong kho: {$row['amount']}</p>
                 </div>
             </li>
             <li>
                 <div class=\"_col\">
                     <p>Ngày vào kho: {$row['dateModified']}</p>
+                </div>
+            </li>
+            <li>
+                <div class=\"_col\">
+                    <p>Cập nhật gần đây: {$row['updated_at']}</p>
                 </div>
             </li>
         </ol>
