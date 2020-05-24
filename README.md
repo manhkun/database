@@ -301,6 +301,3 @@ Lược đồ quan hệ trên MySQL:
     SELECT *  FROM orders ORDER BY orderDate DESC
     ~~~
 
-    
-
-
