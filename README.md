@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Headings -->
 ![Markdown Logo](https://uet.vnu.edu.vn/wp-content/uploads/2019/03/logo-outline-1.png)
 # BÁO CÁO BÀI TẬP LỚN CSDL
