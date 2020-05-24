@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- Headings -->
 ![Markdown Logo](https://uet.vnu.edu.vn/wp-content/uploads/2019/03/logo-outline-1.png)
 # BÁO CÁO BÀI TẬP LỚN CSDL
@@ -90,7 +89,7 @@ b. Các yêu cầu về dữ liệu cần lưu trữ:
 
 * Mô hình hóa ER:
 <!-- content -->
-![ER](img/ER.png)
+![ER](https://github.com/manhkun/database/blob/alpha/img/ER.png)
 
 #### 2. Lược đồ quan hệ
 - <strong>Từ mô hình E-R, ta xây dựng mô hình quan hệ tương ứng:</strong>
@@ -107,12 +106,12 @@ b. Các yêu cầu về dữ liệu cần lưu trữ:
         1. Quan hệ "Chứa" -> Chi tiết hóa đơn(Mã hóa đơn, Mã sách, Số lượng, Tổng tiền)
 * Kết quả thu được: Lược đồ quan hệ:
 
-![Relational Model](img/RelationalModel.png)
+![Relational Model](https://github.com/manhkun/database/blob/alpha/img/RelationalModel.png)
 
 Lược đồ quan hệ trên MySQL:
 
 
-![Relational Model](img/databaseEER.png)
+![Relational Model](https://github.com/manhkun/database/raw/alpha/img/databaseEER.png)
 
 ### <strong>III. CÁC CÂU LỆNH TRUY VẤN SQL </strong>
 #### 1. Các truy vấn liên quan đến thao tác của khách hàng và lấy dữ liệu trong CSDL
@@ -300,4 +299,7 @@ Lược đồ quan hệ trên MySQL:
     ~~~sql
     SELECT *  FROM orders ORDER BY orderDate DESC
     ~~~
+
+    
+
 
