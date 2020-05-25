@@ -20,7 +20,7 @@ a. Các chức năng của khách hàng
 |Chức năng|Mô tả|
 |--------------|---------------|
 |Đăng ký|Khách hàng nhập các thông tin bao gồm: tên, email, mật khẩu, xác nhận mật khẩu và bấm Đăng ký để tiến hành đăng ký|
-|Đăng nhập|Khách hàng nhập thông tin bao gồm: email, mật khẩu và bấm đăng nhập để tiến hành hăng nhập|
+|Đăng nhập|Khách hàng nhập thông tin bao gồm: email, mật khẩu và bấm đăng nhập để tiến hành đăng nhập|
 |Xem các sản phẩm|Khách hàng có thể xem các sản phẩm của cửa hàng hoặc xem thông tin của từng sản phẩm bao gồm: tên sách, tên tác giả, thể loại, mô tả, giá thành, số lượng còn lại trong kho|
 |Thêm sản phẩm vào giỏ hàng|Sau khi chọn được sản phẩm, khách hàng có thể lựa chọn số lượng và thêm vào giỏ hàng, xóa sản phẩm khỏi giỏ hàng|
 |Tiến hành đặt mua|Khách hàng có thể lựa chọn phương thức vận chuyển, nhập các thông tin cần thiết như: tên, số điện thoại, địa chỉ để tiến hành đặt hàng các sản phẩm có trong giỏ hàng|
@@ -299,7 +299,18 @@ Lược đồ quan hệ trên MySQL:
     ~~~sql
     SELECT *  FROM orders ORDER BY orderDate DESC
     ~~~
-
     
+### <strong> I. MÔ TRƯỜNG DEMO </strong>
+#### 1. Link đến trang Web (trang chủ): http://bookstore-project0.herokuapp.com/
+#### 2. Các tài khoản để test:
+* Tài khoản người dùng
+   * Truy cập theo địa chỉ: http://bookstore-project0.herokuapp.com/public/view/front/sign-in.php
+   * Email: userTest@gmail.com
+   * Password:
+* Tài khoản admin
+   * Truy cập theo địa chỉ: http://bookstore-project0.herokuapp.com/public/view/admin
+   * Email: adminTest@gmail.com
+   * Password:
+
 
 
