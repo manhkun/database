@@ -300,7 +300,7 @@ Lược đồ quan hệ trên MySQL:
     SELECT *  FROM orders ORDER BY orderDate DESC
     ~~~
     
-### <strong> I. MÔ TRƯỜNG DEMO </strong>
+### <strong> IV. MÔ TRƯỜNG DEMO </strong>
 #### 1. Link đến trang Web (trang chủ): http://bookstore-project0.herokuapp.com/
 #### 2. Các tài khoản để test:
 * Tài khoản người dùng
