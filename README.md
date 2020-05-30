@@ -15,6 +15,7 @@
 - Trang web được tạo ra nhằm mục đích phục vụ cho cửa hàng bán sách trên nền tảng trực tuyến
 - Khách hàng có thể xem, chọn mua các sản phẩm sách của cửa hàng
 - Cửa hàng có thể xem được các đơn hàng khách hàng đặt mua, quản lý các đơn hàng, sản phẩm của cửa hàng
+- Hiện tại cửa hàng chỉ bán sách trong 3 thể loại là : Tiểu thuyết, Khoa học và Truyện tranh
 #### 2. Mô tả chức năng
 a. Các chức năng của khách hàng
 |Chức năng|Mô tả|
