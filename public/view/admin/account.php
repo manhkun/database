@@ -192,75 +192,39 @@
                 </div>
             </form>
         </div>
-        <!-- <div class="__hidden">
-            <input id="ischeck" type="hidden" name="isPassed" value="<?php echo $isPassed ?>">
-        </div> -->
-       
+        
         <div id="modal-popup-edit" class="modal m-800">
             
 
         </div>
         
         <div id="modal-popup-message" class="modal m-500">
-            <!-- <div id="emailError"><span> Địa chỉ Email không hợp lệ. Vui lòng nhập lại </span></div> -->
-            <!-- <div id="passLeng"> <span> Vui lòng nhập mật khẩu tối thiếu gồm 6 kí tự </span></div> -->
             <div id="passError"><span> Mật khẩu không chính xác, vui lòng kiểm tra lại</span></div>            
-            <!-- <div id="isPassed" ><span> E-mail này đã được sử dụng. Vui lòng đăng ký lại !</span></div> -->
-        </div>
+            </div>
     </div>
-    <!-- action="../../../controller/admin/create/administrator.php" -->
+
     <script>
         $('#table_id').DataTable();
     </script>
 
-<!--    <script>-->
-<!--        $(document).ready(function () {-->
-<!--            $('#modal-popup-edit .__form').submit(function (event) {-->
-<!--                event.preventDefault();-->
-<!--                var email= $('#_checkMail').val()-->
-<!--                var pass= $('#_checkPass').val()-->
-<!--                var rePass= $('#_reCheckPass').val()-->
-<!--                $('_form-message').load("../../../controller/admin/edit_date/check.php", {-->
-<!--                    _email = email,-->
-<!--                    _pass = pass,-->
-<!--                    _rePass = rePass-->
-<!--                });-->
-<!--            })-->
-<!--        })-->
-<!--    </script>-->
 
     <script>
         function validateForm()
         {
             // Bước 1: Lấy giá trị của 
             
-            // var email = document.getElementById('email').value;
             var ps = document.getElementById('ps').value;
             var reps = document.getElementById('reps').value; 
-            // var isPassed = document.getElementById('ischeck').value;
+            
             // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
 
-            
-            // var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-            // if (!filter.test(email)) { 
-            //         $('#emailError').modal();
-            //         return false; 
-            // }
             if(ps!=reps) {
                 $('#passError').modal();
                 return false;
                 
             }
-            // if(isPassed= 1){
-            //     $('#check').modal();
-            //     return false;
-            // }
+            
             if(ps==reps){
-                // if(ps.length<6){
-                //     $('#passLeng').modal();
-                //     return false;
-                // }
-                // else 
                 return true;
             }  
             
@@ -272,30 +236,19 @@
         {
             // Bước 1: Lấy giá trị của 
             
-            // var email = document.getElementById('_email').value;
             var ps = document.getElementById('_ps').value;
             var reps = document.getElementById('_reps').value;
         
             // Bước 2: Kiểm tra dữ liệu hợp lệ hay không
 
-            
-            // var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-            // if (!filter.test(email)) { 
-            //         $('#emailError').modal();
-            //         return false; 
-            // }
+        
             if(ps!=reps) {
                 $('#passError').modal();
                 return false;
                 
             }
             if(ps==reps){
-                // if(ps.length<6){
-                //     $('#passLeng').modal();
-                //     return false;
-                // }
-                // else
-                 return true;
+                return true;
             }      
         }
     </script>

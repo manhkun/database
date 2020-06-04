@@ -11,7 +11,7 @@
         $amount = trim($_POST['amount']);;
         $dateModified = trim($_POST['dateModified']);
         $insert = "INSERT INTO books(`name`, `image`, `price`, `author`, category, description, amount,dateModified)
-                                            VALUE ('{$name}', '{$img}', '{$price}', '{$author}', '{$category}', '{$description}', '{$amount}','{$dateModified}')";
+                                            VALUES ('{$name}', '{$img}', '{$price}', '{$author}', '{$category}', '{$description}', '{$amount}','{$dateModified}')";
 
         if(mysqli_query($con, $insert)){
             move_uploaded_file($file_tmp  , "../../../img/products/$img");

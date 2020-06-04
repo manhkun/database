@@ -4,7 +4,7 @@
 
     $__id = isset($_POST['id']) ? $_POST['id'] : false;
     $___admin = mysqli_fetch_array(mysqli_query($con, "SELECT *  FROM admin  WHERE id= '$__id'"));
-//action = "../../../controller/admin/edit_data/adminEdit.php"
+    
 echo "
    <form class=\"__form\"  method=\"POST\" action = \"../../../controller/admin/edit_data/adminEdit.php\" enctype=\"multipart/form-data\" onsubmit= \"return validateFormEdit()\">
                 <div class=\"__header\">
@@ -72,7 +72,4 @@ echo "
 
 ";
 
-
-
-// onsubmit=\"return validateFormEdit()\"
 ?>

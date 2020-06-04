@@ -1,5 +1,4 @@
 function  getData(elem) {
-    // console.log(1);
     $.ajax({
         url: "../../../controller/admin/show/amountInDay.php",
         method: "post",

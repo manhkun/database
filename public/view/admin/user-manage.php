@@ -65,7 +65,6 @@
     <script>
         $('#table_id').DataTable();
     </script>
-<!--    <script src="../../js/admin/index.js"></script>-->
     <script src="../../js/admin/user-manage.js"></script>
 
 </body>

@@ -16,7 +16,7 @@
                 <div class=\"_col\">
                     <label>Hình ảnh: </label>
                     <div>
-                        <img style=\"object-fit: cover\" src=\"../../../img/products/{$row['image']}\">
+                        <img  width= 400 height= 600 style=\"object-fit: cover\" src=\"../../../img/products/{$row['image']}\">
                     </div>
                 </div>
             </li>

@@ -18,11 +18,5 @@
             $message = "Tài khoản hoặc mật khẩu không chính xác !";
         }
     }
-    // if(isset($_SESSION["email"])) {
-    //     if( (int) $row['authorization'] == 0){
-    //         header("Location: index.php");
-    //     }else{
-    //         $message = "Tài khoản hoặc mật khẩu không chính xác !";
-    //     }      
-    // }
+   
 ?>  

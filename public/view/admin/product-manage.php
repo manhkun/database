@@ -104,16 +104,6 @@
             <div class="__input"><input type="text" name="author"  required></div>
             <div class="clear"></div>
         </div>
-        <!-- <div class="__row">
-            <div class="__label"><span>Thể loại *</span>
-                <div class="__sublabel">Thể loại</div>
-            </div>
-            <div class="__input"><input type="text" name="category" required ></div>
-            <div class="clear"></div>
-        </div> -->
-
-
-
         <div class="__row">
             <div class="__label"><span>Thể loại *</span>
                 <div class="__sublabel">Thể loại</div>
@@ -127,9 +117,6 @@
             </div>
             <div class="clear"></div>
         </div>
-
-
-
         <div class="__row">
             <div class="__label"><span>Thông tin chi tiết *</span>
                 <div class="__sublabel">Thông tin chi tiết</div>
@@ -177,7 +164,6 @@
         table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click')
     }
 </script>
-<!--<script src="../../js/admin/index.js"></script>-->
 <script src="../../js/admin/product-manage.js"></script>
 
 </body>

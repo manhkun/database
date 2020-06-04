@@ -6,7 +6,7 @@
         $id= $row['orderId'];
         if($row['status'] == '0') $status = "Đang giao";
         else if($row['status'] == '1') $status = "Đã giao";
-        // $name = mysqli_fetch_array(mysqli_query($con, "SELECT name FROM orders , users WHERE orders.userId = users.id AND orders.orderId = '$id' "));
+       
         echo "
                 <tr>
                     <td>{$stt}</td>

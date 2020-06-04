@@ -1,5 +1,4 @@
 function getData(elem) {
-    // console.log(1);
     $.ajax({
         url: "../../../controller/admin/form_edit/form-admin.php",
         method: "post",
@@ -24,7 +23,6 @@ function askDelete(elem) {
     if(result)  {
         $.ajax({
             url: "../../../controller/admin/delete/admin.php",
-            // type: "delete",
             method: "post",
             data: {
                 id: $(elem).data('id')
@@ -46,22 +44,3 @@ function askDelete(elem) {
     }
 }
 
-// function validate() {
-    // $(document).ready(function () {
-    //     $('#modal-popup-edit .__form').submit(function (event) {
-    //         event.preventDefault();
-    //         var email= $('#_checkMail').val()
-    //         var pass= $('#_checkPass').val()
-    //         var rePass= $('#_reCheckPass').val()
-    //         $('_form-message').load("../../../controller/admin/edit_date/adminEdit.php", {
-    //             email : email,
-    //             pass : pass,
-    //             rePass : rePass
-    //         });
-    //     })
-    // })
-    // var email = document.getElementById("_checkMail");
-    // var pass = document.getElementById("_checkPass");
-    // var rePass = document.getElementById("_reCheckPass");
-    // if()
-// }
