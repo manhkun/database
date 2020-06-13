@@ -1,4 +1,17 @@
 <!-- Headings -->
+# NOTE:
+https://github.com/manhkun/database/blob/test1/B%C3%A1o%20c%C3%A1o%20B%C3%A0i%20T%E1%BA%ADp%20L%E1%BB%9Bn.pdf để xem bản báo cáo chi tiết( báo cáo cuối cùng)
+
+###
+###
+###
+###
+###
+
+
+
+
+
 ![Markdown Logo](https://uet.vnu.edu.vn/wp-content/uploads/2019/03/logo-outline-1.png)
 # BÁO CÁO BÀI TẬP LỚN CSDL
 ## TRANG WEB MUA BÁN SÁCH ONLINE
