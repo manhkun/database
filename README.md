@@ -2,11 +2,28 @@
 # NOTE:
 https://github.com/manhkun/database/blob/test1/B%C3%A1o%20c%C3%A1o%20B%C3%A0i%20T%E1%BA%ADp%20L%E1%BB%9Bn.pdf để xem bản báo cáo chi tiết( báo cáo cuối cùng)
 
-###
-###
-###
-###
-###
+
+#### 1. Link đến trang Web (trang chủ): http://bookstore-project0.herokuapp.com/
+#### 2. Các tài khoản để test:
+* Tài khoản người dùng
+   * Truy cập theo địa chỉ: http://bookstore-project0.herokuapp.com/public/view/front/sign-in.php
+   * Email: userTest@gmail.com
+   * Password: 1234567890
+* Tài khoản admin
+   * Truy cập theo địa chỉ: http://bookstore-project0.herokuapp.com/public/view/admin
+   * Email: adminTest@gmail.com
+   * Password: 1234567890
+
+
+##
+##
+##
+##
+##
+##
+##
+##
+##
 
 
 
